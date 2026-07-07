@@ -88,7 +88,7 @@ export default function VerifyCode() {
     }
 
     setError("");
-    // TODO: replace with your real "verify code" API call
+    
     console.log("Verifying code", code, "for flow:", flow);
 
     navigate(config.nextPath);

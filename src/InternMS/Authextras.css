@@ -1,4 +1,4 @@
-/* ===== Icon-in-input fields (used in Login, Reset Password) ===== */
+
 .ims-input-icon-wrap {
   position: relative;
 }
@@ -45,7 +45,7 @@
   opacity: 1;
 }
 
-/* ===== Badge icon holder (lavender rounded square) ===== */
+
 .ims-auth-badge-icon {
   width: 52px;
   height: 52px;
@@ -63,7 +63,7 @@
   height: 24px;
 }
 
-/* ===== Large circular icon (Verify Identity / Success screens) ===== */
+
 .ims-auth-shield-lg {
   width: 100px;
   height: 100px;
@@ -91,7 +91,6 @@
   color: var(--ims-primary);
 }
 
-/* ===== OTP input boxes ===== */
 .ims-otp-row {
   display: flex;
   gap: 12px;
@@ -140,7 +139,6 @@
   cursor: default;
 }
 
-/* ===== Radio cards (verification method / 2FA method picker) ===== */
 .ims-radio-card {
   display: flex;
   align-items: center;
@@ -215,7 +213,7 @@
   background: var(--ims-primary);
 }
 
-/* ===== Password validation checklist ===== */
+
 .ims-validation-list {
   background: var(--ims-primary-light);
   border-radius: 10px;
@@ -252,7 +250,7 @@
   background: #16a34a;
 }
 
-/* ===== Success pill badge ===== */
+
 .ims-success-pill {
   display: inline-flex;
   align-items: center;
@@ -266,7 +264,6 @@
   margin-bottom: 20px;
 }
 
-/* ===== Small footers / trust rows ===== */
 .ims-security-footer-row {
   display: flex;
   gap: 24px;
@@ -331,7 +328,6 @@
   text-decoration: underline;
 }
 
-/* ===== Divider with text ("OR CONTINUE WITH") ===== */
 .ims-divider {
   display: flex;
   align-items: center;
@@ -351,7 +347,6 @@
   background: var(--ims-border);
 }
 
-/* ===== Social login button ===== */
 .ims-social-btn {
   width: 100%;
   display: flex;
@@ -371,7 +366,7 @@
   border-color: var(--ims-text-muted);
 }
 
-/* ===== Footer text links (Help / Privacy / Terms) ===== */
+
 .ims-auth-footer-links {
   display: flex;
   gap: 18px;
@@ -390,7 +385,6 @@
   color: var(--ims-text);
 }
 
-/* ===== Large translucent icon box (left panel decorative element) ===== */
 .ims-auth-left-icon-box {
   width: 140px;
   height: 140px;
@@ -408,7 +402,6 @@
   color: rgba(255, 255, 255, 0.65);
 }
 
-/* ===== Illustration image inside dark card (success screen) ===== */
 .ims-auth-illustration-card {
   border-radius: 16px;
   overflow: hidden;

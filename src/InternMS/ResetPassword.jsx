@@ -26,7 +26,7 @@ export default function ResetPassword() {
     }
 
     setError("");
-    // TODO: replace with your real "update password" API call
+    
     console.log("Updating password:", password);
 
     navigate("/reset-password-success");
@@ -34,7 +34,7 @@ export default function ResetPassword() {
 
   return (
     <div className="ims-login-page">
-      {/* LEFT */}
+  
       <div className="ims-login-left">
         <div className="ims-login-left__inner">
           <h1>Secure your account.</h1>

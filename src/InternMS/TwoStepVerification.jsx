@@ -14,7 +14,7 @@ export default function TwoStepVerification() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: replace with your real "send 2FA code" API call
+  
     console.log("Sending 2FA code via", method);
 
     navigate("/verify-code", { state: { flow: "2fa", method } });
@@ -22,7 +22,7 @@ export default function TwoStepVerification() {
 
   return (
     <div className="ims-login-page">
-      {/* LEFT */}
+  
       <div className="ims-login-left">
         <div className="ims-login-left__inner">
           <h1>Secure Your Account</h1>
@@ -43,7 +43,7 @@ export default function TwoStepVerification() {
         </div>
       </div>
 
-      {/* RIGHT */}
+     
       <div className="ims-login-right">
         <div className="ims-login-form-wrap">
           <h2>Two-Step Verification</h2>

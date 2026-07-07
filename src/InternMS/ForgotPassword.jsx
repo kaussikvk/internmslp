@@ -27,7 +27,7 @@ export default function ForgotPassword() {
     }
 
     setError("");
-    // TODO: replace with your real "send code" API call
+
     console.log("Sending reset code via", method, "to", contact);
 
     navigate("/verify-code", { state: { flow: "reset", method, contact } });

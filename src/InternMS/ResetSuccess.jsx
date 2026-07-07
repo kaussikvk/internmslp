@@ -10,7 +10,7 @@ import illustrationSuccess from "../assets/illustration-success.png";
 export default function ResetSuccess() {
   return (
     <div className="ims-login-page">
-      {/* LEFT */}
+     
       <div className="ims-login-left">
         <div className="ims-login-left__inner">
           <div className="ims-auth-shield-lg">
@@ -37,7 +37,6 @@ export default function ResetSuccess() {
         </div>
       </div>
 
-      {/* RIGHT */}
       <div className="ims-login-right">
         <div className="ims-login-form-wrap">
           <span className="ims-success-pill">⚙ Action Complete</span>
