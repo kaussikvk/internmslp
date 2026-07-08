@@ -1,60 +1,71 @@
 .ims-register-form-wrap {
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
+}
+
+.ims-register-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ims-text);
+  margin: 0 0 10px;
+}
+
+.ims-register-label span {
+  color: #d92d20;
 }
 
 .ims-register-tabs {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   margin-bottom: 24px;
 }
 
 .ims-register-tab {
-  flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 16px 8px;
+  border-radius: 12px;
   border: 1px solid var(--ims-border);
   background: var(--ims-white);
-  color: var(--ims-text-muted);
-  font-weight: 600;
-  font-size: 0.9rem;
+  color: var(--ims-text);
+  font-weight: 700;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.15s ease;
+}
+
+.ims-register-tab:hover {
+  border-color: var(--ims-primary);
 }
 
 .ims-register-tab__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: rgba(37, 99, 235, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f3f4f6;
   flex-shrink: 0;
 }
 
-.ims-register-tab__icon img {
-  width: 14px;
-  height: 14px;
-  object-fit: contain;
+.ims-register-tab--active {
+  background: var(--ims-primary-light);
+  border-color: var(--ims-primary);
+  color: var(--ims-text);
 }
 
 .ims-register-tab--active .ims-register-tab__icon {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.ims-register-tab--active {
-  background: var(--ims-primary);
-  border-color: var(--ims-primary);
-  color: var(--ims-white);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .ims-register-form-wrap h2 {
-  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.7rem;
   font-weight: 800;
   margin-bottom: 8px;
   color: var(--ims-text);
@@ -110,10 +121,10 @@
   resize: vertical;
 }
 
-
+/* Left-panel bullet list (used by hr, mentor, intern, company, admin) */
 .ims-register-bullets {
   list-style: none;
-  margin: 8px 0 40px;
+  margin: 8px 0 32px;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -136,12 +147,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--ims-white);
 }
 
-.ims-register-bullets__icon img {
+.ims-register-bullets__icon svg {
   width: 18px;
   height: 18px;
-  object-fit: contain;
 }
 
 .ims-register-bullets li strong {
@@ -158,11 +169,17 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
+@media (max-width: 700px) {
+  .ims-register-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 560px) {
   .ims-register-grid {
     grid-template-columns: 1fr;
   }
   .ims-register-tabs {
-    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

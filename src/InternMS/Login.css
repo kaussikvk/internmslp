@@ -168,6 +168,13 @@
   font-size: 0.9rem;
   color: var(--ims-text-muted);
 }
+.ims-login-form .ims-input-icon-wrap input[type="email"],
+.ims-login-form .ims-input-icon-wrap input[type="password"],
+.ims-login-form .ims-input-icon-wrap input[type="text"] {
+  padding-left: 42px;
+}
+
+
 
 
 @media (max-width: 900px) {

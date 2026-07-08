@@ -21,21 +21,37 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validateForm = () => {
+  if (!form.email || !form.password) {
+    return "Please fill in both fields.";
+  }
 
-    if (!form.email || !form.password) {
-      setError("Please fill in both fields.");
-      return;
-    }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(form.email)) {
+    return "Please enter a valid email address.";
+  }
 
-    setError("");
-    // TODO: replace with your real authentication call
-    console.log("Logging in with:", form);
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+  if (!passwordRegex.test(form.password)) {
+    return "Password must be at least 8 characters, with 1 uppercase letter and 1 number.";
+  }
 
-    // If your app requires 2FA after login, redirect there instead:
-    navigate("/two-step-verification");
-  };
+  return "";
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const validationError = validateForm();
+  if (validationError) {
+    setError(validationError);
+    return;
+  }
+
+  setError("");
+  console.log("Logging in with:", form);
+  navigate("/two-step-verification");
+};
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -45,8 +61,7 @@ export default function Login() {
         });
         const profile = await res.json();
 
-        // profile contains: { email, name, picture, sub, ... }
-        // TODO: send this to your backend to create/find the user + issue your own session
+        
         console.log("Google profile:", profile);
 
         navigate("/");
@@ -59,6 +74,7 @@ export default function Login() {
   });
 
   return (
+    
     <div className="ims-login-page">
       {/* LEFT - brand panel */}
       <div className="ims-login-left">
@@ -104,7 +120,7 @@ comprehensive internship management platform.</p>
                 <input
                   type="email"
                   name="email"
-                  placeholder="      Enter Email address"
+                  placeholder="Enter Email address"
                   value={form.email}
                   onChange={handleChange}
                 />
@@ -123,7 +139,7 @@ comprehensive internship management platform.</p>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
-                  placeholder="      Enter your password"
+                  placeholder="Enter your password"
                   value={form.password}
                   onChange={handleChange}
                   style={{ paddingRight: 42 }}
@@ -171,7 +187,8 @@ comprehensive internship management platform.</p>
             <Link to="/terms">Terms</Link>
           </div>
         </div>
-      </div>
+      
+    </div>
     </div>
   );
 }
