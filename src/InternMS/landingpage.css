@@ -101,6 +101,7 @@
   position: sticky;
   top: 0;
   background: var(--ims-white);
+  z-index: 100;
 }
 
 .ims-navbar__inner {

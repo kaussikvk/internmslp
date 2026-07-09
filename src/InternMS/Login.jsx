@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./landingpage.css";
 import "./Login.css";
 import "./AuthExtras.css";
-import { useGoogleLogin } from "@react-oauth/google";
 import { EyeIcon, EyeOffIcon, GoogleGIcon } from "./AuthIcons";
 
 import loginIllustration from "../assets/icon (8).png";
@@ -53,25 +52,10 @@ const handleSubmit = (e) => {
   navigate("/two-step-verification");
 };
 
-  const googleLogin = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      try {
-        const res = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
-          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
-        });
-        const profile = await res.json();
-
-        
-        console.log("Google profile:", profile);
-
-        navigate("/");
-      } catch (err) {
-        console.error(err);
-        setError("Couldn't complete Google sign-in. Please try again.");
-      }
-    },
-    onError: () => setError("Google sign-in failed. Please try again."),
-  });
+  // Dummy Google sign-in handler (frontend-only placeholder, no real auth)
+  const handleGoogleLogin = () => {
+    console.log("Google sign-in clicked (dummy - not implemented)");
+  };
 
   return (
     
@@ -169,7 +153,7 @@ comprehensive internship management platform.</p>
 
           <div className="ims-divider">OR CONTINUE WITH</div>
 
-          <button type="button" className="ims-social-btn" onClick={() => googleLogin()}>
+          <button type="button" className="ims-social-btn" onClick={handleGoogleLogin}>
             <GoogleGIcon width={18} height={18} />
             Google
           </button>
