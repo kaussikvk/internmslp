@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Kaussiklandingpage.css";
+import "./landingpage.css";
 import "./Login.css";
 import "./Register.css";
 import { HRIcon, MentorIcon, InternIcon, CompanyIcon, AdminIcon, TargetIcon, ConnectionIcon, TrophyIcon, TrackingIcon } from "./AuthIcons";
@@ -207,7 +207,7 @@ export default function Register() {
         <div className="ims-login-left__inner">
           <h2  className="ims-logo ims-logo--light">
             InternHub
-            <span className="ims-logo__by ims-logo__by--light">by Kaussik</span>
+            
           </h2>
 
           <h1>{config.leftTitle}</h1>

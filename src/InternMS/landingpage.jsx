@@ -1,5 +1,5 @@
 import React from "react";
-import "./Kaussiklandingpage.css";
+import "./landingpage.css";
 import { Link } from "react-router-dom";
 
 import iconSparkle from "../assets/Icon.png";
@@ -61,7 +61,6 @@ export default function KaussikInternMS() {
         <div className="ims-navbar__inner">
           <div className="ims-logo">
             InternMS
-            <span className="ims-logo__by">by Kaussik</span>
           </div>
           <div className="ims-navbar__actions">
             <Link to="/login" className="ims-link">
@@ -219,7 +218,6 @@ export default function KaussikInternMS() {
           <div>
             <div className="ims-logo ims-logo--light">
               InterMS
-              <span className="ims-logo__by ims-logo__by--light">by Kaussik</span>
             </div>
             <p>
               The ultimate platform for managing internships, connecting

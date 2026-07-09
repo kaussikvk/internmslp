@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./Kaussiklandingpage.css";
+import "./landingpage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { ShieldCheckIcon } from "./AuthIcons";

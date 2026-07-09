@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Kaussiklandingpage.css";
+import "./landingpage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { CheckCircleIcon } from "./AuthIcons";
