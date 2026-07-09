@@ -4,6 +4,8 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { ShieldIcon } from "./AuthIcons";
+import AuthFooter from "./AuthFooter";
+
 
 import iconForgotPassword from "../assets/Auth/icon-shield.png";
 import iconLock from "../assets/Auth/icon-lock-alt.png";
@@ -113,6 +115,8 @@ export default function ResetPassword() {
           </p>
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }
+

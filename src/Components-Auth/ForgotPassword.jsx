@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
+import AuthFooter from "./AuthFooter";
 
 import iconForgotPassword from "../assets/Auth/icon-forgot-password.png";
+
 import iconMail from "../assets/Auth/icon-mail.png";
 import iconMobile from "../assets/Auth/icon-mobile.png";
 
@@ -123,6 +125,8 @@ export default function ForgotPassword() {
           </Link>
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }
+

@@ -1,0 +1,39 @@
+.ims-auth-footer {
+  background: rgba(240, 243, 255, 1);
+  padding: 18px 24px;
+}
+
+.ims-auth-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 0 auto;
+  font-size: 0.82rem;
+  color: rgba(30, 34, 54, 0.75);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ims-auth-footer__links {
+  display: flex;
+  gap: 22px;
+}
+
+.ims-auth-footer__links a {
+  color: rgba(30, 34, 54, 0.85);
+  text-decoration: none;
+}
+
+.ims-auth-footer__links a:hover {
+  color: #000;
+}
+
+
+@media (max-width: 560px) {
+  .ims-auth-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

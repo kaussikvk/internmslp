@@ -1,6 +1,17 @@
 import React from "react";
 
+export function AdminBriefcaseIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width={props.width || 24} height={props.height || 24} {...props}>
+      <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M3 12h18" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 export function ShieldCheckIcon(props) {
+
   return (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
@@ -77,7 +88,7 @@ export function ShieldIcon(props) {
   );
 }
 
-/* ===== Registration role-tab icons (self-contained, no image files needed) ===== */
+
 
 export function HRIcon(props) {
   return (
@@ -166,7 +177,7 @@ export function TrackingIcon(props) {
   );
 }
 
-/* Simple, non-trademarked "G" mark for the Google button */
+
 export function GoogleGIcon(props) {
   return (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>

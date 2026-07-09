@@ -3,7 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./Register.css";
-import { HRIcon, MentorIcon, InternIcon, CompanyIcon, AdminIcon, TargetIcon, ConnectionIcon, TrophyIcon, TrackingIcon } from "./AuthIcons";
+import { HRIcon, MentorIcon, InternIcon, CompanyIcon, AdminIcon, TargetIcon, ConnectionIcon, TrophyIcon, TrackingIcon, ShieldCheckIcon } from "./AuthIcons";
+import mentorOfficeImg from "../assets/Auth/Mentor-Office.png";
+import internAvatarImg from "../assets/Auth/Icon-Blueman.png";
+import handshakeIcon from "../assets/Auth/Icon-Handshake.png";
+import adminRoomIcon from "../assets/Auth/Icon-adminroom.png";
+import AuthFooter from "./AuthFooter";
 
 const ROLE_CONFIG = {
   hr: {
@@ -18,6 +23,14 @@ const ROLE_CONFIG = {
     ],
     formTitle: "Create your HR account",
     formSubtitle: "Join our ecosystem of professional employers.",
+    illustration: {
+      icon: TargetIcon,
+      title: "Unified Talent Dashboard",
+      text: "Monitor all applications in real-time.",
+      progress: 65,
+      statLeft: "75% Efficiency Boost",
+      statRight: "120+ Placements",
+    },
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "John Doe" },
       { name: "workEmail", label: "Work Email Address", type: "email", placeholder: "john.doe@company.com" },
@@ -44,6 +57,7 @@ const ROLE_CONFIG = {
     ],
     formTitle: "Mentor Registration",
     formSubtitle: "Complete your profile to start connecting with students.",
+    leftImage: mentorOfficeImg,
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Enter your full name" },
       { name: "email", label: "Email Address", type: "email", placeholder: "Enter your email address" },
@@ -77,6 +91,12 @@ const ROLE_CONFIG = {
     ],
     formTitle: "Intern Registration",
     formSubtitle: "Fill in the details below to create your professional account.",
+    testimonial: {
+      avatar: internAvatarImg,
+      quote: "InternMS helped me land my dream internship at a Fortune 500 company within 3 weeks of joining.",
+      name: "Sarah J.",
+      role: "Product Design Intern",
+    },
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Enter your full name" },
       { name: "email", label: "Email Address", type: "email", placeholder: "Enter your email address" },
@@ -110,11 +130,13 @@ const ROLE_CONFIG = {
     ],
     formTitle: "Create Company Account",
     formSubtitle: "Fill in the details to register your organization and start hiring.",
+    leftImage: handshakeIcon,
+    leftImageGlass: true,
     fields: [
       { name: "companyName", label: "Company Name", type: "text", placeholder: "e.g. Acme Corp" },
       { name: "website", label: "Company Website", type: "text", placeholder: "https://" },
       { name: "workEmail", label: "Work Email", type: "email", placeholder: "name@company.com" },
-      { name: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your number" },
+      { name: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your number", hasPrefix: "+91" },
       {
         name: "industry",
         label: "Industry",
@@ -133,27 +155,29 @@ const ROLE_CONFIG = {
   admin: {
     label: "Admin",
     tabIcon: AdminIcon,
-    leftTitle: "Manage your organization with full control.",
+    leftTitle: "Regain access to your professional future.",
     leftText:
-      "Oversee accounts, permissions, and platform-wide settings from a single secure admin console.",
+      "Join thousands of companies and educational institutions managing their internship programs securely with InternMS.",
     leftBullets: [
-      { icon: TrophyIcon, title: "Full Access Control", text: "Manage every role and permission from one place." },
-      { icon: TrackingIcon, title: "Audit & Security Logs", text: "Track every action across the platform." },
+      { icon: ShieldCheckIcon, title: "Role-based access", text: "Assign granular permissions across your organization." },
+      { icon: ShieldCheckIcon, title: "Trusted & Secure", text: "Bank-grade encryption protects every admin session." },
     ],
+    leftImage: adminRoomIcon,
+    leftImageGlass: true,
     formTitle: "Admin Registration",
     formSubtitle: "Set up a secure administrator account for your organization.",
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Enter your full name" },
-      { name: "workEmail", label: "Work Email", type: "email", placeholder: "Enter your work email" },
-      { name: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your phone number" },
-      { name: "organization", label: "Organization Name", type: "text", placeholder: "Enter your organization name" },
+      { name: "email", label: "Email Address", type: "email", placeholder: "Enter your email address" },
+      { name: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your phone number", hasPrefix: "+91" },
+      { name: "organization", label: "Organization / Institution Name", type: "text", placeholder: "Enter your organization or institution name" },
+      { name: "jobTitle", label: "Job Title / Designation", type: "text", placeholder: "e.g. IT Administrator" },
       {
-        name: "accessLevel",
-        label: "Access Level",
+        name: "country",
+        label: "Country",
         type: "select",
-        options: ["Super Admin", "Support Admin", "Content Admin"],
+        options: ["India", "United States", "United Kingdom", "Canada", "Australia", "Other"],
       },
-      { name: "securityKey", label: "Security Key (Optional)", type: "text", placeholder: "2FA / hardware key ID", fullWidth: true },
     ],
   },
 };
@@ -169,6 +193,7 @@ export default function Register() {
   const [error, setError] = useState("");
 
   const config = ROLE_CONFIG[role];
+  const isIntern = role === "intern";
 
   const handleRoleChange = (newRole) => {
     setRole(newRole);
@@ -201,18 +226,16 @@ export default function Register() {
   };
 
   return (
-    <div className="ims-login-page">
+    <div className="ims-login-page ims-register-page">
       {/* LEFT */}
-      <div className="ims-login-left">
+      <div className={`ims-login-left ${isIntern ? "ims-login-left--top" : ""}`}>
+        <div className="ims-auth-logo">
+          InterMS
+        </div>
         <div className="ims-login-left__inner">
-          <h2  className="ims-logo ims-logo--light">
-            InternHub
-            
-          </h2>
-
           <h1>{config.leftTitle}</h1>
           <p>{config.leftText}</p>
-          <ul className="ims-register-bullets">
+          <ul className={`ims-register-bullets ${isIntern ? "ims-register-bullets--glass" : ""}`}>
             {config.leftBullets.map((b) => {
               const BulletIcon = b.icon;
               return (
@@ -229,16 +252,69 @@ export default function Register() {
             })}
           </ul>
 
-          <div className="ims-login-stats">
-            <div>
-              <strong>500+</strong>
-              <span>Universities</span>
+          {config.illustration && (
+            <div className="ims-register-illustration">
+              <div className="ims-register-illustration__header">
+                <span className="ims-register-illustration__icon">
+                  {(() => {
+                    const IllustrationIcon = config.illustration.icon;
+                    return <IllustrationIcon width={20} height={20} />;
+                  })()}
+                </span>
+                <div>
+                  <strong>{config.illustration.title}</strong>
+                  <p>{config.illustration.text}</p>
+                </div>
+              </div>
+              <div className="ims-register-illustration__bar">
+                <div
+                  className="ims-register-illustration__bar-fill"
+                  style={{ width: `${config.illustration.progress}%` }}
+                />
+              </div>
+              <div className="ims-register-illustration__stats">
+                <span>{config.illustration.statLeft}</span>
+                <span>{config.illustration.statRight}</span>
+              </div>
             </div>
-            <div>
-              <strong>10k+</strong>
-              <span>Companies</span>
+          )}
+
+          {config.leftImage && config.leftImageGlass && (
+            <div className="ims-register-handshake">
+              <img src={config.leftImage} alt="" />
             </div>
-          </div>
+          )}
+
+          {config.leftImage && !config.leftImageGlass && (
+            <div className="ims-register-left-image">
+              <img src={config.leftImage} alt="" />
+            </div>
+          )}
+
+          {role === "hr" && (
+            <div className="ims-login-stats">
+              <div>
+                <strong>500+</strong>
+                <span>Companies</span>
+              </div>
+              <div>
+                <strong>10k+</strong>
+                <span>Students</span>
+              </div>
+            </div>
+          )}
+
+          {config.testimonial && (
+            <div className="ims-register-testimonial">
+              <p>&quot;{config.testimonial.quote}&quot;</p>
+              <div className="ims-register-testimonial__author">
+                <img src={config.testimonial.avatar} alt={config.testimonial.name} />
+                <span>
+                  — {config.testimonial.name}, {config.testimonial.role}
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -317,7 +393,7 @@ export default function Register() {
                     />
                   )}
 
-                  {["text", "email", "tel", "date"].includes(field.type) && (
+                  {["text", "email", "tel", "date"].includes(field.type) && !field.hasPrefix && (
                     <input
                       type={field.type}
                       placeholder={field.placeholder}
@@ -325,6 +401,19 @@ export default function Register() {
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
                       required={field.label.includes("Optional") ? false : true}
                     />
+                  )}
+
+                  {["text", "email", "tel", "date"].includes(field.type) && field.hasPrefix && (
+                    <div className="ims-phone-prefix-row">
+                      <span className="ims-phone-prefix-row__prefix">{field.hasPrefix}</span>
+                      <input
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        value={formData[field.name] || ""}
+                        onChange={(e) => handleFieldChange(field.name, e.target.value)}
+                        required={field.label.includes("Optional") ? false : true}
+                      />
+                    </div>
                   )}
                 </label>
               ))}
@@ -376,6 +465,7 @@ export default function Register() {
           </p>
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }

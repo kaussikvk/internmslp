@@ -4,6 +4,8 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { ShieldCheckIcon } from "./AuthIcons";
+import AuthFooter from "./AuthFooter";
+
 
 import iconMail from "../assets/Auth/icon-mail.png";
 import iconMobile from "../assets/Auth/icon-mobile.png";
@@ -95,6 +97,8 @@ export default function TwoStepVerification() {
           </p>
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }
+

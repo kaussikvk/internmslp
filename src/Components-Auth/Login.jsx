@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { EyeIcon, EyeOffIcon, GoogleGIcon } from "./AuthIcons";
+import AuthFooter from "./AuthFooter";
+
 
 import loginIllustration from "../assets/Auth/icon-shield.png";
 import iconVerified from "../assets/Auth/icon-verified.png";
@@ -52,10 +55,38 @@ const handleSubmit = (e) => {
   navigate("/two-step-verification");
 };
 
-  // Dummy Google sign-in handler (frontend-only placeholder, no real auth)
-  const handleGoogleLogin = () => {
-    console.log("Google sign-in clicked (dummy - not implemented)");
-  };
+  // Real Google sign-in using @react-oauth/google (Google Identity Services)
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        setError("");
+        // Fetch basic profile info using the access token
+        const res = await fetch(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${tokenResponse.access_token}`,
+            },
+          }
+        );
+        const profile = await res.json();
+        console.log("Google sign-in successful:", profile);
+
+        // Persist basic user info for the app to use downstream
+        localStorage.setItem("googleUser", JSON.stringify(profile));
+
+        navigate("/two-step-verification");
+      } catch (err) {
+        console.error("Failed to fetch Google profile:", err);
+        setError("Google sign-in failed. Please try again.");
+      }
+    },
+    onError: (err) => {
+      console.error("Google sign-in error:", err);
+      setError("Google sign-in failed. Please try again.");
+    },
+  });
+
 
   return (
     
@@ -171,8 +202,10 @@ comprehensive internship management platform.</p>
             <Link to="/terms">Terms</Link>
           </div>
         </div>
-      
-    </div>
+
+      </div>
+      <AuthFooter />
     </div>
   );
 }
+

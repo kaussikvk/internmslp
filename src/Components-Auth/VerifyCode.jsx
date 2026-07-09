@@ -4,6 +4,8 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { ShieldCheckIcon } from "./AuthIcons";
+import AuthFooter from "./AuthFooter";
+
 
 const VARIANTS = {
   reset: {
@@ -127,7 +129,7 @@ export default function VerifyCode() {
           <h2>Enter Verification Code</h2>
           <p className="ims-login-subtitle">
             {subtitle} The code will expire in{" "}
-            <span className="ims-timer-text">{formatTime(secondsLeft)}</span> minutes.
+            <span className="ims-timer-text">{formatTime(secondsLeft)}</span> seconds.
           </p>
 
           <form onSubmit={handleSubmit} noValidate>
@@ -183,6 +185,8 @@ export default function VerifyCode() {
           )}
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }
+

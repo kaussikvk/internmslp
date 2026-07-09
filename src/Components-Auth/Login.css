@@ -2,8 +2,14 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
 }
+
+.ims-login-page > .ims-auth-footer {
+  grid-column: 1 / -1;
+}
+
 
 
 .ims-login-left {
