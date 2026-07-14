@@ -11,7 +11,6 @@ import iconMail from "../assets/LandingPage/icon-mail.png";
 import iconGlobe from "../assets/LandingPage/icon-globe.png";
 import dashboardPreview from "../assets/LandingPage/dashboard-preview.png";
 import floatingCardShadow from "../assets/LandingPage/floating-card-shadow.png";
-import heroGradient from "../assets/LandingPage/hero-gradient.png";
 import officePhoto from "../assets/LandingPage/office-photo.jpg";
 
 const FEATURES = [
@@ -75,7 +74,7 @@ export default function LandingPage() {
 
      
       <section className="ims-hero">
-        <img src={heroGradient} alt="" className="ims-hero__bg" aria-hidden="true" />
+        <div className="ims-hero__bg" aria-hidden="true"></div>
         <div className="ims-container ims-hero__grid">
           <div className="ims-hero__content">
             <span className="ims-badge">
@@ -84,7 +83,7 @@ export default function LandingPage() {
             </span>
             <a className="hero-title">
               Seamless<br/>
-              Interships. <br/>
+              Internships. <br/>
               <span >Smarter</span><br/>
               <span>Management.</span>
 
@@ -168,7 +167,7 @@ export default function LandingPage() {
       </section>
 
      
-      <section className="ims-section">
+      <section className="ims-section ims-section--white">
         <div className="ims-container ims-audience">
           <div className="ims-audience__content">
             <a className="ims-section-title ims-section-title--left">
@@ -217,7 +216,7 @@ export default function LandingPage() {
         <div className="ims-container ims-footer__grid">
           <div>
             <div className="ims-logo ims-logo--light">
-              InterMS
+              InternMS
             </div>
             <p>
               The ultimate platform for managing internships, connecting
@@ -267,7 +266,7 @@ export default function LandingPage() {
         </div>
 
         <div className="ims-container ims-footer__bottom">
-          <span>&copy; 2024 InterMS. All rights reserved.</span>
+          <span>&copy; 2024 InternMS. All rights reserved.</span>
           <span>Made with &hearts; for the future workforce</span>
         </div>
       </footer>
