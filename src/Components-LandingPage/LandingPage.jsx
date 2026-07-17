@@ -6,7 +6,7 @@ import iconSparkle from "../assets/LandingPage/icon-sparkle.png";
 import iconAutomatedMatching from "../assets/LandingPage/icon-automated-matching.png";
 import iconRealtimeTracking from "../assets/LandingPage/icon-realtime-tracking.png";
 import iconSecureDocuments from "../assets/LandingPage/icon-secure-documents.png";
-import iconCheckmark from "../assets/LandingPage/icon-checkmark.png";
+import iconCheckmark from "../assets/LandingPage/Tickwithcircle.png";
 import iconMail from "../assets/LandingPage/icon-mail.png";
 import iconGlobe from "../assets/LandingPage/icon-globe.png";
 import dashboardPreview from "../assets/LandingPage/dashboard-preview.png";
@@ -223,9 +223,14 @@ export default function LandingPage() {
               talent, and building the future of work.
             </p>
             <div className="ims-footer__social">
-              <img src={iconGlobe} alt="Website" />
-              <img src={iconMail} alt="Email" />
+              <a href="#website" aria-label="Website">
+                <img src={iconGlobe} alt="" />
+              </a>
+              <a href="#email" aria-label="Email">
+                <img src={iconMail} alt="" />
+              </a>
             </div>
+
           </div>
 
           <div>

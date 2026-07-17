@@ -4,7 +4,6 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { ShieldCheckIcon } from "./AuthIcons";
-import AuthFooter from "./AuthFooter";
 
 
 const VARIANTS = {
@@ -107,7 +106,7 @@ export default function VerifyCode() {
     <div className="ims-login-page">
       {/* LEFT */}
       <div className="ims-login-left">
-        <div className="ims-login-left__inner">
+        <div className="ims-login-left__inner" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="ims-auth-shield-lg">
             <div className="ims-auth-shield-inner">
               <ShieldCheckIcon />
@@ -185,7 +184,6 @@ export default function VerifyCode() {
           )}
         </div>
       </div>
-      <AuthFooter />
     </div>
   );
 }

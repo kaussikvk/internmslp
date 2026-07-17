@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
-import AuthFooter from "./AuthFooter";
 
 import iconForgotPassword from "../assets/Auth/icon-forgot-password.png";
 
@@ -125,7 +124,6 @@ export default function ForgotPassword() {
           </Link>
         </div>
       </div>
-      <AuthFooter />
     </div>
   );
 }

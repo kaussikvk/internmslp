@@ -113,6 +113,17 @@
   max-width: 100%;
 }
 
+/* Intern/Mentor register pages: push the left image down closer to bottom of blue panel */
+.ims-register-page .ims-login-left--top .ims-register-left-image {
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+/* Mentor tab uses testimonial after image; ensure image (not testimonial) gets pushed down */
+.ims-register-page .ims-login-left--top .ims-register-left-image + .ims-register-testimonial {
+  margin-top: 24px;
+}
+
 .ims-register-left-image img {
   width: 100%;
   display: block;
@@ -127,7 +138,7 @@
   aspect-ratio: 1 / 1;
   max-width: 320px;
   width: 100%;
-  margin: 8px 0 32px;
+  margin: 40px 0 32px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -139,11 +150,17 @@
 }
 
 .ims-register-handshake img {
-  width: 45%;
-  height: 45%;
+  width: 30%;
+  height: 30%;
   object-fit: contain;
   opacity: 0.95;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+/* Admin register page: left-side image should fill 80% of the glassy box */
+.ims-register-handshake--admin img {
+  width: 80%;
+  height: 80%;
 }
 
 
@@ -197,7 +214,15 @@
   border-radius: 10px;
   background: #f3f4f6;
   flex-shrink: 0;
+  overflow: hidden;
 }
+
+.ims-register-tab__icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 
 .ims-register-tab--active {
   background: var(--ims-primary-light);
@@ -283,7 +308,7 @@
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
   padding: 18px 20px;
-  margin: 8px 0 32px;
+  margin: 60px 0px 0px 50px;
 }
 
 .ims-register-illustration__header {
@@ -367,6 +392,35 @@
   height: 18px;
 }
 
+.ims-register-bullets__icon--img {
+  background: var(--ims-primary);
+  border: none;
+}
+
+.ims-register-bullets__icon--img.ims-register-bullets__icon--img-original {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ims-register-bullets__icon--img.ims-register-bullets__icon--img-nobg {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.ims-register-bullets__icon--img img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.ims-register-bullets__icon--img img.ims-register-bullets__icon-img--original {
+  filter: none;
+  width: 22px;
+  height: 22px;
+}
+
+
 .ims-register-bullets li strong {
   display: block;
   font-size: 0.95rem;
@@ -434,4 +488,39 @@
   .ims-register-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+
+/* HR register page: push stats block (500+/10k+) down a bit */
+.ims-register-page .ims-login-stats {
+  margin-top: 90px;
+}
+
+
+/* HR register page: center heading, paragraph, illustration card, and stats */
+.ims-register-left--hr {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ims-register-left--hr h1,
+.ims-register-left--hr p {
+  text-align: center;
+}
+
+.ims-register-left--hr .ims-register-illustration {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.ims-register-left--hr .ims-register-illustration__header {
+  text-align: left;
+}
+
+.ims-register-left--hr .ims-login-stats {
+  justify-content: center;
+  width: 100%;
 }

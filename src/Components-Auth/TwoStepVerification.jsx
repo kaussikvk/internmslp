@@ -4,7 +4,6 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { ShieldCheckIcon } from "./AuthIcons";
-import AuthFooter from "./AuthFooter";
 
 
 import iconMail from "../assets/Auth/icon-mail.png";
@@ -34,9 +33,10 @@ export default function TwoStepVerification() {
           </p>
 
           <div className="ims-trust-row">
-            <div className="ims-auth-badge-icon">
+            <div className="ims-auth-badge-icon ims-auth-badge-icon--solid">
               <ShieldCheckIcon />
             </div>
+
             <div>
               <strong>256-bit Encryption</strong>
               <span>Bank-grade security standards</span>
@@ -97,7 +97,6 @@ export default function TwoStepVerification() {
           </p>
         </div>
       </div>
-      <AuthFooter />
     </div>
   );
 }

@@ -528,11 +528,29 @@
   margin-top: 20px;
 }
 
-.ims-footer__social img {
-  width: 18px;
-  height: 18px;
-  opacity: 0.8;
+.ims-footer__social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ims-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
 }
+
+.ims-footer__social a:hover {
+  background: var(--ims-primary-dark);
+}
+
+.ims-footer__social img {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
+
 
 .ims-footer h5 {
   color: var(--ims-white);

@@ -3,28 +3,41 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./Register.css";
-import { HRIcon, MentorIcon, InternIcon, CompanyIcon, AdminIcon, TargetIcon, ConnectionIcon, TrophyIcon, TrackingIcon, ShieldCheckIcon } from "./AuthIcons";
+import { TrackingIcon, ShieldCheckIcon } from "./AuthIcons";
 import mentorOfficeImg from "../assets/Auth/Mentor-Office.png";
 import internAvatarImg from "../assets/Auth/Icon-Blueman.png";
 import handshakeIcon from "../assets/Auth/Icon-Handshake.png";
 import adminRoomIcon from "../assets/Auth/Icon-adminroom.png";
+import iconHR from "../assets/Auth/icon-HR.png";
+import iconMentor from "../assets/Auth/Icon-mentor.png";
+import iconIntern from "../assets/Auth/Icon-intern.png";
+import iconCompany from "../assets/Auth/Icon-company.png";
+import iconAdmin from "../assets/Auth/Icon-admin.png";
+import iconConnections from "../assets/Auth/icon-connections.png";
+import pplBackgroundIcon from "../assets/Auth/pplBackground.png";
+import sparkleIcon from "../assets/Auth/sparkle1.png";
+import shieldIcon from "../assets/Auth/shield.png";
+import verifiedCircleIcon from "../assets/Auth/Verified circle.png";
+import verifiedShieldIcon from "../assets/Auth/Verified shield.png";
 import AuthFooter from "./AuthFooter";
+
+const HR_BG = "rgba(138, 76, 252, 1)";
+const MENTOR_BG = "rgba(79, 70, 229, 1)";
+const COMPANY_BG = "rgba(53, 37, 205, 1)";
 
 const ROLE_CONFIG = {
   hr: {
     label: "HR",
-    tabIcon: HRIcon,
+    tabIconImg: iconHR,
     leftTitle: "Empower your team with top-tier talent.",
     leftText:
       "Streamline your recruitment process, manage internships with ease, and connect with the next generation of industry leaders.",
-    leftBullets: [
-      { icon: TargetIcon, title: "Unified Talent Dashboard", text: "Monitor all applications in real-time." },
-      { icon: ConnectionIcon, title: "Faster Hiring", text: "Cut time-to-hire with streamlined workflows." },
-    ],
     formTitle: "Create your HR account",
     formSubtitle: "Join our ecosystem of professional employers.",
     illustration: {
-      icon: TargetIcon,
+      iconImg: pplBackgroundIcon,
+      iconOriginalColor: true,
+      iconBgColor: HR_BG,
       title: "Unified Talent Dashboard",
       text: "Monitor all applications in real-time.",
       progress: 65,
@@ -46,14 +59,14 @@ const ROLE_CONFIG = {
   },
   mentor: {
     label: "Mentor",
-    tabIcon: MentorIcon,
+    tabIconImg: iconMentor,
     leftTitle: "Empower the next generation of talent.",
     leftText:
       "Join a community of experts guiding students through their career journey. Share your knowledge and shape the industry's future.",
     leftBullets: [
-      { icon: TargetIcon, title: "Direct Impact", text: "Shape careers through 1:1 mentorship." },
-      { icon: ConnectionIcon, title: "Meaningful Connections", text: "Build a network across industries." },
-      { icon: TrophyIcon, title: "Recognition & Growth", text: "Earn credentials for your contributions." },
+      { iconImg: shieldIcon, iconOriginalColor: true, iconBgColor: MENTOR_BG, title: "Direct Impact", text: "Shape careers through 1:1 mentorship." },
+      { iconImg: iconConnections, iconBgColor: MENTOR_BG, title: "Meaningful Connections", text: "Build a network across industries." },
+      { iconImg: sparkleIcon, iconOriginalColor: true, iconBgColor: MENTOR_BG, title: "Recognition & Growth", text: "Earn credentials for your contributions." },
     ],
     formTitle: "Mentor Registration",
     formSubtitle: "Complete your profile to start connecting with students.",
@@ -81,12 +94,12 @@ const ROLE_CONFIG = {
   },
   intern: {
     label: "Intern",
-    tabIcon: InternIcon,
+    tabIconImg: iconIntern,
     leftTitle: "Your gateway to professional excellence starts here.",
     leftText:
       "Join thousands of ambitious students securing world-class internships at leading tech companies and creative agencies.",
     leftBullets: [
-      { icon: TargetIcon, title: "Verified Employers", text: "Connect with pre-vetted top-tier companies worldwide." },
+      { iconImg: verifiedCircleIcon, iconOriginalColor: true, noBg: true, title: "Verified Employers", text: "Connect with pre-vetted top-tier companies worldwide." },
       { icon: TrackingIcon, title: "Smart Tracking", text: "Manage all your applications in one organized dashboard." },
     ],
     formTitle: "Intern Registration",
@@ -120,13 +133,13 @@ const ROLE_CONFIG = {
   },
   company: {
     label: "Company",
-    tabIcon: CompanyIcon,
+    tabIconImg: iconCompany,
     leftTitle: "Partner with InternMS to scale your team.",
     leftText:
       "Connect with over 100,000+ top-tier students and graduates ready to bring innovation to your company.",
     leftBullets: [
-      { icon: ConnectionIcon, title: "Effortless Hiring", text: "Post jobs and manage applicants in one centralized dashboard." },
-      { icon: TrophyIcon, title: "Verified Talent", text: "Every student profile is verified for education and skill credentials." },
+      { iconImg: iconConnections, iconBgColor: COMPANY_BG, title: "Effortless Hiring", text: "Post jobs and manage applicants in one centralized dashboard." },
+      { iconImg: verifiedShieldIcon, iconOriginalColor: true, iconBgColor: COMPANY_BG, title: "Verified Talent", text: "Every student profile is verified for education and skill credentials." },
     ],
     formTitle: "Create Company Account",
     formSubtitle: "Fill in the details to register your organization and start hiring.",
@@ -154,7 +167,7 @@ const ROLE_CONFIG = {
   },
   admin: {
     label: "Admin",
-    tabIcon: AdminIcon,
+    tabIconImg: iconAdmin,
     leftTitle: "Regain access to your professional future.",
     leftText:
       "Join thousands of companies and educational institutions managing their internship programs securely with InternMS.",
@@ -184,6 +197,36 @@ const ROLE_CONFIG = {
 
 const ROLE_ORDER = ["hr", "mentor", "intern", "company", "admin"];
 
+function BulletIconRenderer({ bullet }) {
+  if (bullet.iconImg) {
+    const wrapperStyle = bullet.noBg
+      ? undefined
+      : bullet.iconBgColor
+      ? { background: bullet.iconBgColor, border: "none" }
+      : undefined;
+    return (
+      <span
+        className={`ims-register-bullets__icon ims-register-bullets__icon--img${
+          bullet.noBg ? " ims-register-bullets__icon--img-nobg" : ""
+        }`}
+        style={wrapperStyle}
+      >
+        <img
+          src={bullet.iconImg}
+          alt=""
+          className={bullet.iconOriginalColor ? "ims-register-bullets__icon-img--original" : ""}
+        />
+      </span>
+    );
+  }
+  const BulletIcon = bullet.icon;
+  return (
+    <span className="ims-register-bullets__icon">
+      <BulletIcon width={18} height={18} />
+    </span>
+  );
+}
+
 export default function Register() {
   const navigate = useNavigate();
   const [role, setRole] = useState("intern");
@@ -194,6 +237,8 @@ export default function Register() {
 
   const config = ROLE_CONFIG[role];
   const isIntern = role === "intern";
+  const isHrOrCompany = role === "hr" || role === "company";
+  const isAdmin = role === "admin";
 
   const handleRoleChange = (newRole) => {
     setRole(newRole);
@@ -222,44 +267,59 @@ export default function Register() {
     setError("");
     console.log("Registering", role, { ...formData, password });
 
-    navigate("/login");
+    navigate(isHrOrCompany ? "/company-hr-login" : "/login");
   };
 
   return (
     <div className="ims-login-page ims-register-page">
       {/* LEFT */}
-      <div className={`ims-login-left ${isIntern ? "ims-login-left--top" : ""}`}>
+      <div className={`ims-login-left ${isIntern || role === "mentor" ? "ims-login-left--top" : ""}`}>
         <div className="ims-auth-logo">
           InterMS
         </div>
         <div className="ims-login-left__inner">
           <h1>{config.leftTitle}</h1>
           <p>{config.leftText}</p>
-          <ul className={`ims-register-bullets ${isIntern ? "ims-register-bullets--glass" : ""}`}>
-            {config.leftBullets.map((b) => {
-              const BulletIcon = b.icon;
-              return (
+
+          {isAdmin && config.leftImage && config.leftImageGlass && (
+            <div className="ims-register-handshake ims-register-handshake--admin">
+              <img src={config.leftImage} alt="" />
+            </div>
+          )}
+
+          {config.leftBullets && (
+            <ul className={`ims-register-bullets ${isIntern ? "ims-register-bullets--glass" : ""}`}>
+              {config.leftBullets.map((b) => (
                 <li key={b.title}>
-                  <span className="ims-register-bullets__icon">
-                    <BulletIcon width={18} height={18} />
-                  </span>
+                  <BulletIconRenderer bullet={b} />
                   <div>
                     <strong>{b.title}</strong>
                     <p>{b.text}</p>
                   </div>
                 </li>
-              );
-            })}
-          </ul>
+              ))}
+            </ul>
+          )}
 
           {config.illustration && (
             <div className="ims-register-illustration">
               <div className="ims-register-illustration__header">
-                <span className="ims-register-illustration__icon">
-                  {(() => {
-                    const IllustrationIcon = config.illustration.icon;
-                    return <IllustrationIcon width={20} height={20} />;
-                  })()}
+                <span
+                  className="ims-register-illustration__icon"
+                  style={config.illustration.iconBgColor ? { background: config.illustration.iconBgColor } : undefined}
+                >
+                  {config.illustration.iconImg ? (
+                    <img
+                      src={config.illustration.iconImg}
+                      alt=""
+                      style={{ width: 22, height: 22, objectFit: "contain" }}
+                    />
+                  ) : (
+                    (() => {
+                      const IllustrationIcon = config.illustration.icon;
+                      return <IllustrationIcon width={20} height={20} />;
+                    })()
+                  )}
                 </span>
                 <div>
                   <strong>{config.illustration.title}</strong>
@@ -279,7 +339,7 @@ export default function Register() {
             </div>
           )}
 
-          {config.leftImage && config.leftImageGlass && (
+          {!isAdmin && config.leftImage && config.leftImageGlass && (
             <div className="ims-register-handshake">
               <img src={config.leftImage} alt="" />
             </div>
@@ -329,22 +389,19 @@ export default function Register() {
           </p>
 
           <div className="ims-register-tabs">
-            {ROLE_ORDER.map((r) => {
-              const TabIcon = ROLE_CONFIG[r].tabIcon;
-              return (
-                <button
-                  type="button"
-                  key={r}
-                  className={`ims-register-tab ${role === r ? "ims-register-tab--active" : ""}`}
-                  onClick={() => handleRoleChange(r)}
-                >
-                  <span className="ims-register-tab__icon">
-                    <TabIcon width={20} height={20} />
-                  </span>
-                  {ROLE_CONFIG[r].label}
-                </button>
-              );
-            })}
+            {ROLE_ORDER.map((r) => (
+              <button
+                type="button"
+                key={r}
+                className={`ims-register-tab ${role === r ? "ims-register-tab--active" : ""}`}
+                onClick={() => handleRoleChange(r)}
+              >
+                <span className="ims-register-tab__icon">
+                  <img src={ROLE_CONFIG[r].tabIconImg} alt="" />
+                </span>
+                {ROLE_CONFIG[r].label}
+              </button>
+            ))}
           </div>
 
           <form onSubmit={handleSubmit} className="ims-register-form" noValidate>
@@ -459,13 +516,13 @@ export default function Register() {
 
           <p className="ims-login-footer-text">
             Already have an account?{" "}
-            <Link to="/login" className="ims-text-link">
+            <Link to={isHrOrCompany ? "/company-hr-login" : "/login"} className="ims-text-link">
               Log In
             </Link>
           </p>
         </div>
       </div>
-      <AuthFooter />
+      {role === "admin" && <AuthFooter />}
     </div>
   );
 }

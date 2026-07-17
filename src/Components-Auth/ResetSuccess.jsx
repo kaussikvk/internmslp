@@ -4,7 +4,6 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 import { CheckCircleIcon } from "./AuthIcons";
-import AuthFooter from "./AuthFooter";
 
 
 import illustrationSuccess from "../assets/Auth/illustration-success.png";
@@ -52,9 +51,10 @@ export default function ResetSuccess() {
           <Link to="/login" className="ims-btn ims-btn--dark ims-login-submit" style={{ textAlign: "center" }}>
             Back to Login
           </Link>
+
+          <hr style={{ marginTop: 26, border: "none", borderTop: "1px solid var(--ims-border)" }} />
         </div>
       </div>
-      <AuthFooter />
     </div>
   );
 }

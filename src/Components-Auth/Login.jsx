@@ -4,8 +4,8 @@ import { useGoogleLogin } from "@react-oauth/google";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
+import "./LoginOverrides.css";
 import { EyeIcon, EyeOffIcon, GoogleGIcon } from "./AuthIcons";
-import AuthFooter from "./AuthFooter";
 
 
 import loginIllustration from "../assets/Auth/icon-shield.png";
@@ -104,7 +104,7 @@ applications, and accelerate your career path with our
 comprehensive internship management platform.</p>
 
           <div className="ims-login-badge">
-            <img src={iconVerified} alt="" />
+          
       
           </div>
 
@@ -131,7 +131,7 @@ comprehensive internship management platform.</p>
             <label>
               Email Address
               <div className="ims-input-icon-wrap">
-                <img src={iconMail} alt="" />
+                <img src={iconMail} alt="" className="ims-icon-grey" />
                 <input
                   type="email"
                   name="email"
@@ -204,7 +204,6 @@ comprehensive internship management platform.</p>
         </div>
 
       </div>
-      <AuthFooter />
     </div>
   );
 }

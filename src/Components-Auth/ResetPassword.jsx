@@ -3,11 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
-import { ShieldIcon } from "./AuthIcons";
-import AuthFooter from "./AuthFooter";
 
 
-import iconForgotPassword from "../assets/Auth/icon-shield.png";
+import verifyCodeShield from "../assets/Auth/verifycodeshield.png";
+import newPasswordIcon from "../assets/Auth/newpassword.png";
 import iconLock from "../assets/Auth/icon-lock-alt.png";
 
 export default function ResetPassword() {
@@ -28,7 +27,7 @@ export default function ResetPassword() {
     }
 
     setError("");
-    
+
     console.log("Updating password:", password);
 
     navigate("/reset-password-success");
@@ -36,7 +35,7 @@ export default function ResetPassword() {
 
   return (
     <div className="ims-login-page">
-  
+
       <div className="ims-login-left">
         <div className="ims-login-left__inner">
           <h1>Secure your account.</h1>
@@ -46,7 +45,7 @@ export default function ResetPassword() {
           </p>
 
           <div className="ims-auth-left-icon-box">
-            <ShieldIcon />
+            <img src={verifyCodeShield} alt="" style={{ width: "60px", height: "60px", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -55,7 +54,7 @@ export default function ResetPassword() {
       <div className="ims-login-right">
         <div className="ims-login-form-wrap">
           <div className="ims-auth-badge-icon">
-            <img src={iconForgotPassword} alt="" />
+            <img src={newPasswordIcon} alt="" />
           </div>
 
           <h2>Set New Password</h2>
@@ -115,8 +114,6 @@ export default function ResetPassword() {
           </p>
         </div>
       </div>
-      <AuthFooter />
     </div>
   );
 }
-

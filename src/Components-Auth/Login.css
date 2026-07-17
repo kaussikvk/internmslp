@@ -4,11 +4,20 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr auto;
   font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .ims-login-page > .ims-auth-footer {
   grid-column: 1 / -1;
 }
+
+.ims-login-page,
+.ims-login-left,
+.ims-login-right {
+  box-sizing: border-box;
+}
+
 
 
 
@@ -21,6 +30,7 @@
   position: relative;
   overflow: hidden;
   font-family: "Inter", sans-serif;
+  border-radius: 0 24px 24px 0;
 }
 
 .ims-login-left--gradient {
@@ -149,10 +159,19 @@
 
 .ims-login-checkbox {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   font-weight: 400;
   color: var(--ims-text-muted);
+  text-align: left;
+  width: auto;
+}
+
+.ims-login-checkbox input[type="checkbox"] {
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .ims-login-error {
@@ -177,10 +196,13 @@
 .ims-login-form .ims-input-icon-wrap input[type="email"],
 .ims-login-form .ims-input-icon-wrap input[type="password"],
 .ims-login-form .ims-input-icon-wrap input[type="text"] {
-  padding-left: 42px;
+  padding-left: 35px;
 }
 
 
+.ims-login-stats{
+  padding-top: 150px;
+}
 
 
 @media (max-width: 900px) {
@@ -189,6 +211,7 @@
   }
   .ims-login-left {
     padding: 40px 30px;
+    border-radius: 0 0 24px 24px;
   }
   .ims-login-left h1 {
     font-size: 1.6rem;

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./Components-LandingPage/LandingPage";
 import Login from "./Components-Auth/Login";
 import Register from "./Components-Auth/Register";
+import CompanyHRLogin from "./Components-Auth/CompanyHRLogin";
 import ForgotPassword from "./Components-Auth/ForgotPassword";
 import VerifyCode from "./Components-Auth/VerifyCode";
 import ResetPassword from "./Components-Auth/ResetPassword";
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/company-hr-login" element={<CompanyHRLogin />} />
 
         
         <Route path="/forgot-password" element={<ForgotPassword />} />

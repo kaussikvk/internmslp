@@ -15,6 +15,11 @@
   pointer-events: none;
 }
 
+.ims-icon-grey {
+  filter: grayscale(100%) brightness(0.75);
+  opacity: 0.7 !important;
+}
+
 .ims-input-icon-wrap input {
   width: 100%;
   padding: 12px 14px 12px 42px;
@@ -30,15 +35,19 @@
 
 .ims-eye-toggle {
   position: absolute;
-  right: 12px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 0;
+  margin: 0;
   opacity: 0.6;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 .ims-eye-toggle:hover {
@@ -49,7 +58,7 @@
 .ims-auth-badge-icon {
   width: 52px;
   height: 52px;
-  border-radius: 12px;
+  border-radius: 50%;
   background: var(--ims-primary-light);
   display: flex;
   align-items: center;
@@ -57,11 +66,26 @@
   margin-bottom: 20px;
 }
 
-.ims-auth-badge-icon img,
-.ims-auth-badge-icon svg {
-  width: 24px;
-  height: 24px;
+.ims-auth-badge-icon img {
+  width: 26px;
+  height: 26px;
 }
+
+.ims-auth-badge-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--ims-primary);
+}
+
+.ims-auth-badge-icon--solid {
+  background: var(--ims-primary);
+}
+
+.ims-auth-badge-icon--solid svg {
+  color: var(--ims-white);
+}
+
+
 
 
 .ims-auth-shield-lg {
@@ -169,12 +193,16 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
 }
 
 .ims-radio-card__icon img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
+
+
 
 .ims-radio-card__text {
   flex: 1;

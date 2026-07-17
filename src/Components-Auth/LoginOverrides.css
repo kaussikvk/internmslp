@@ -1,0 +1,54 @@
+
+.ims-login-page label.ims-login-checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  width: auto !important;
+  text-align: left !important;
+}
+
+.ims-login-page label.ims-login-checkbox input[type="checkbox"] {
+  order: 0 !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  width: 16px !important;
+  height: 16px !important;
+  position: static !important;
+}
+
+
+.ims-login-page .ims-input-icon-wrap {
+  position: relative !important;
+}
+
+.ims-login-page .ims-input-icon-wrap input[type="password"],
+.ims-login-page .ims-input-icon-wrap input[type="text"] {
+  padding-right: 44px !important;
+  box-sizing: border-box !important;
+}
+
+.ims-login-page .ims-input-icon-wrap button.ims-eye-toggle {
+  position: absolute !important;
+  top: 50% !important;
+  right: 20px !important;
+  left: auto !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: none !important;
+  border: none !important;
+  z-index: 3 !important;
+}
+
+.ims-login-page .ims-input-icon-wrap button.ims-eye-toggle svg {
+  width: 18px !important;
+  height: 18px !important;
+}

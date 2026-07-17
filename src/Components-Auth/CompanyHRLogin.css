@@ -1,0 +1,186 @@
+
+.ims-hrlogin-page.ims-login-page {
+  grid-template-columns: 40% 60%;
+}
+
+.ims-hrlogin-left {
+  background-color: #1a1f66;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 60px;
+  border-radius: 0 24px 24px 0;
+  overflow: hidden;
+}
+
+
+.ims-hrlogin-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 15, 90, 0.55),
+    rgba(38, 55, 190, 0.55)
+  );
+  pointer-events: none;
+}
+
+.ims-hrlogin-left .ims-login-left__inner {
+  position: relative;
+  z-index: 1;
+  margin-top: 70px;
+  padding: 0;
+}
+
+.ims-hrlogin-left .ims-logo--light {
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+
+.ims-hrlogin-left h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+
+.ims-hrlogin-stats-block {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.ims-hrlogin-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  margin: 0 0 24px;
+}
+
+.ims-hrlogin-copyright {
+  position: relative;
+  z-index: 1;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+
+.ims-hrlogin-page .ims-login-right {
+  padding: 60px 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ims-hrlogin-page .ims-login-form-wrap {
+  width: 100%;
+  max-width: 420px;
+}
+
+.ims-hrlogin-page .ims-login-form-wrap h2 {
+  margin-bottom: 4px;
+}
+
+.ims-hrlogin-page .ims-login-subtitle {
+  margin-bottom: 36px;
+}
+
+.ims-hrlogin-page .ims-login-form {
+  gap: 22px;
+}
+
+
+.ims-hrlogin-page .ims-input-icon-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.ims-hrlogin-page .ims-input-icon-wrap input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+.ims-hrlogin-page .ims-input-icon-wrap svg,
+.ims-hrlogin-page .ims-input-icon-wrap > img {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  color: var(--ims-text-muted, #8a8fa3);
+  pointer-events: none;
+}
+
+
+.ims-hrlogin-page .ims-eye-toggle {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ims-text-muted, #8a8fa3);
+  z-index: 2;
+}
+
+
+.ims-hrlogin-page .ims-login-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+  width: auto;
+}
+
+.ims-hrlogin-page .ims-login-checkbox input[type="checkbox"] {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.ims-divider{
+    padding-top: 50px;
+}
+
+.ims-social-btn{
+    margin-top: 100px;
+}
+
+.ims-logo ims-logo--light{
+    padding-bottom: 50px;
+}
+.ims-hrlogin-copyright{
+    padding-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .ims-hrlogin-page.ims-login-page {
+    grid-template-columns: 1fr;
+  }
+  .ims-hrlogin-left {
+    border-radius: 0 0 24px 24px;
+  }
+  .ims-hrlogin-page .ims-login-right {
+    padding: 40px 30px;
+  }
+}
