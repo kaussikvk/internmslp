@@ -10,7 +10,7 @@ import { EyeIcon, EyeOffIcon, GoogleGIcon, UserIcon } from "./AuthIcons";
 
 
 import bgImage from "../assets/Auth/Background Image.png";
-import iconLock from "../assets/Auth/icon-lock.png";
+import iconLock from "../assets/Auth/Icon-Locks.png";
 
 export default function CompanyHRLogin() {
   const navigate = useNavigate();
@@ -141,9 +141,10 @@ export default function CompanyHRLogin() {
                 </Link>
               </div>
               <div className="ims-input-icon-wrap">
-                <img src={iconLock} alt="" />
+                <img src={iconLock} alt="" className="ims-auth-icon-img" />
                 <input
                   type={showPassword ? "text" : "password"}
+
                   name="password"
                   placeholder="Enter your password"
                   value={form.password}

@@ -102,16 +102,6 @@ export default function ForgotPassword() {
               </div>
             </div>
 
-            <label>
-              {method === "sms" ? "Phone Number" : "Email Address"}
-              <input
-                type={method === "sms" ? "tel" : "email"}
-                placeholder={method === "sms" ? "Enter your phone number" : "you@example.com"}
-                value={contact}
-                onChange={(e) => setContact(e.target.value)}
-              />
-            </label>
-
             {error && <p className="ims-login-error">{error}</p>}
 
             <button type="submit" className="ims-btn ims-btn--dark ims-login-submit">

@@ -10,8 +10,8 @@ import { EyeIcon, EyeOffIcon, GoogleGIcon } from "./AuthIcons";
 
 import loginIllustration from "../assets/Auth/icon-shield.png";
 import iconVerified from "../assets/Auth/icon-verified.png";
-import iconMail from "../assets/Auth/icon-mail.png";
-import iconLock from "../assets/Auth/icon-lock.png";
+import iconMail from "../assets/Auth/Icon-mails.png";
+import iconLock from "../assets/Auth/Icon-Locks.png";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -131,7 +131,7 @@ comprehensive internship management platform.</p>
             <label>
               Email Address
               <div className="ims-input-icon-wrap">
-                <img src={iconMail} alt="" className="ims-icon-grey" />
+                <img src={iconMail} alt="" className="ims-icon-grey ims-auth-icon-img" />
                 <input
                   type="email"
                   name="email"
@@ -142,6 +142,7 @@ comprehensive internship management platform.</p>
               </div>
             </label>
 
+
             <label>
               <div className="ims-login-row" style={{ marginBottom: 8 }}>
                 <span>Password</span>
@@ -150,9 +151,10 @@ comprehensive internship management platform.</p>
                 </Link>
               </div>
               <div className="ims-input-icon-wrap">
-                <img src={iconLock} alt="" />
+                <img src={iconLock} alt="" className="ims-auth-icon-img" />
                 <input
                   type={showPassword ? "text" : "password"}
+
                   name="password"
                   placeholder="Enter your password"
                   value={form.password}

@@ -105,8 +105,8 @@ export default function VerifyCode() {
   return (
     <div className="ims-login-page">
       {/* LEFT */}
-      <div className="ims-login-left">
-        <div className="ims-login-left__inner" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div className="ims-login-left ims-verify-left">
+        <div className="ims-auth-shield-box">
           <div className="ims-auth-shield-lg">
             <div className="ims-auth-shield-inner">
               <ShieldCheckIcon />
@@ -117,7 +117,7 @@ export default function VerifyCode() {
           <p>{config.leftText}</p>
 
           {config.trustLine && (
-            <p style={{ marginTop: 30, fontWeight: 600 }}>{config.trustLine}</p>
+            <p className="ims-verify-trustline">{config.trustLine}</p>
           )}
         </div>
       </div>
@@ -155,10 +155,10 @@ export default function VerifyCode() {
             </button>
           </form>
 
-          <p className="ims-resend-text">
+          <p className="ims-resend-text ims-resend-text--center">
             Didn&apos;t receive the code?{" "}
             <button type="button" onClick={handleResend} disabled={secondsLeft > 0}>
-              Resend {secondsLeft > 0 ? `(in ${formatTime(secondsLeft)})` : ""}
+              Resend {secondsLeft > 0 ? `in ${formatTime(secondsLeft)}` : ""}
             </button>
           </p>
 
@@ -170,21 +170,24 @@ export default function VerifyCode() {
           )}
 
           {config.footer === "support" && (
-            <div style={{ textAlign: "center", marginTop: 20 }}>
-              <Link to="/two-step-verification" className="ims-text-link">
-                🛡 Back to verification options
-              </Link>
-              <p style={{ marginTop: 14, fontSize: "0.85rem" }}>
-                Need help?{" "}
-                <Link to="/contact-support" className="ims-text-link">
-                  Contact Support
+            <>
+              <div className="ims-verify-divider" />
+              <div className="ims-verify-footer">
+                <Link to="/two-step-verification" className="ims-verify-footer-link">
+                  <ShieldCheckIcon width={16} height={16} />
+                  Back to verification options
                 </Link>
-              </p>
-            </div>
+                <p className="ims-verify-support-text">
+                  Need help?{" "}
+                  <Link to="/contact-support" className="ims-verify-support-link">
+                    Contact Support
+                  </Link>
+                </p>
+              </div>
+            </>
           )}
         </div>
       </div>
     </div>
   );
 }
-

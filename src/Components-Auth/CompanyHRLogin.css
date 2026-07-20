@@ -158,20 +158,13 @@
   flex-shrink: 0;
 }
 
-.ims-divider{
-    padding-top: 50px;
-}
-
-.ims-social-btn{
-    margin-top: 100px;
-}
-
 .ims-logo ims-logo--light{
     padding-bottom: 50px;
 }
 .ims-hrlogin-copyright{
     padding-top: 40px;
 }
+
 
 @media (max-width: 900px) {
   .ims-hrlogin-page.ims-login-page {
