@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
-import { ShieldCheckIcon } from "./AuthIcons";
+import { ShieldCheckIcon, LockIcon } from "./AuthIcons";
 
 
 const VARIANTS = {
@@ -105,21 +105,38 @@ export default function VerifyCode() {
   return (
     <div className="ims-login-page">
       {/* LEFT */}
-      <div className="ims-login-left ims-verify-left">
-        <div className="ims-auth-shield-box">
-          <div className="ims-auth-shield-lg">
-            <div className="ims-auth-shield-inner">
-              <ShieldCheckIcon />
+      <div className={`ims-login-left ${flow === "2fa" ? "ims-verify-left" : ""}`}>
+        {flow === "2fa" ? (
+          <div className="ims-auth-shield-box">
+            <div className="ims-auth-shield-lg">
+              <div className="ims-auth-shield-inner">
+                <ShieldCheckIcon />
+              </div>
             </div>
+
+            <h1>{config.leftTitle}</h1>
+            <p>{config.leftText}</p>
+
+            {config.trustLine && (
+              <p className="ims-verify-trustline">{config.trustLine}</p>
+            )}
           </div>
+        ) : (
+          <div className="ims-login-left__inner ims-reset-left-inner">
+            <div className="ims-auth-shield-lg">
+              <div className="ims-auth-shield-inner">
+                <ShieldCheckIcon />
+              </div>
+            </div>
 
-          <h1>{config.leftTitle}</h1>
-          <p>{config.leftText}</p>
+            <h1>{config.leftTitle}</h1>
+            <p>{config.leftText}</p>
 
-          {config.trustLine && (
-            <p className="ims-verify-trustline">{config.trustLine}</p>
-          )}
-        </div>
+            {config.trustLine && (
+              <p style={{ marginTop: 30, fontWeight: 600 }}>{config.trustLine}</p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* RIGHT */}
@@ -163,9 +180,13 @@ export default function VerifyCode() {
           </p>
 
           {config.footer === "encrypted" && (
-            <div className="ims-security-footer-row">
-              <span>🔒 End-to-end encrypted</span>
-              <span>🛡 Secure handshake</span>
+            <div className="ims-security-footer-row ims-security-footer-row--center">
+              <span>
+                <LockIcon width={14} height={14} /> End-to-end encrypted
+              </span>
+              <span>
+                <ShieldCheckIcon width={14} height={14} /> Secure handshake
+              </span>
             </div>
           )}
 

@@ -308,6 +308,10 @@
   border-top: 1px solid var(--ims-border);
 }
 
+.ims-security-footer-row--center {
+  justify-content: center;
+}
+
 .ims-security-footer-row span {
   display: flex;
   align-items: center;
@@ -318,6 +322,13 @@
   color: var(--ims-text-muted);
   text-transform: uppercase;
 }
+
+.ims-security-footer-row span svg {
+  color: var(--ims-text-muted);
+  flex-shrink: 0;
+}
+
+
 
 .ims-trust-row {
   display: flex;
@@ -464,6 +475,14 @@
 .ims-verify-left::before {
   display: none;
 }
+
+.ims-reset-left-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 
 .ims-auth-shield-box {
   width: 100%;

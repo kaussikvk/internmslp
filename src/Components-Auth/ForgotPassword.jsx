@@ -11,28 +11,16 @@ import iconMobile from "../assets/Auth/icon-mobile.png";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
-  const [contact, setContact] = useState("");
   const [method, setMethod] = useState("email");
-  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!contact) {
-      setError(
-        method === "sms"
-          ? "Please enter your phone number first."
-          : "Please enter your email address first."
-      );
-      return;
-    }
+    console.log("Sending reset code via", method);
 
-    setError("");
-
-    console.log("Sending reset code via", method, "to", contact);
-
-    navigate("/verify-code", { state: { flow: "reset", method, contact } });
+    navigate("/verify-code", { state: { flow: "reset", method } });
   };
+
 
   return (
     <div className="ims-login-page">
@@ -69,10 +57,7 @@ export default function ForgotPassword() {
 
               <div
                 className={`ims-radio-card ${method === "email" ? "ims-radio-card--active" : ""}`}
-                onClick={() => {
-                  setMethod("email");
-                  setContact("");
-                }}
+                onClick={() => setMethod("email")}
               >
                 <div className="ims-radio-card__icon">
                   <img src={iconMail} alt="" />
@@ -86,10 +71,7 @@ export default function ForgotPassword() {
 
               <div
                 className={`ims-radio-card ${method === "sms" ? "ims-radio-card--active" : ""}`}
-                onClick={() => {
-                  setMethod("sms");
-                  setContact("");
-                }}
+                onClick={() => setMethod("sms")}
               >
                 <div className="ims-radio-card__icon">
                   <img src={iconMobile} alt="" />
@@ -101,8 +83,6 @@ export default function ForgotPassword() {
                 <div className="ims-radio-card__dot" />
               </div>
             </div>
-
-            {error && <p className="ims-login-error">{error}</p>}
 
             <button type="submit" className="ims-btn ims-btn--dark ims-login-submit">
               Send Verification Code &rarr;
