@@ -23,8 +23,9 @@ const VARIANTS = {
     initialSeconds: 58,
     submitLabel: "Verify Identity",
     footer: "support",
-    nextPath: "/",
+    nextPath: "/mentor-dashboard",
   },
+
 };
 
 export default function VerifyCode() {
