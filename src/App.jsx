@@ -13,7 +13,7 @@ import "./App.css";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/internmslp">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
