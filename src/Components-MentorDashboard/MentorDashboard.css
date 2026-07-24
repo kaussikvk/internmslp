@@ -26,7 +26,7 @@
   box-sizing: border-box;
 }
 
-/* ===================== SIDEBAR ===================== */
+
 .mdb-sidebar {
   width: var(--mdb-sidebar-width);
   flex-shrink: 0;
@@ -77,15 +77,16 @@
 }
 
 .mdb-sidebar__link:hover {
-  background: var(--mdb-navy-hover);
+  background: rgba(255, 255, 255, 0.3);
   color: #fff;
 }
 
 .mdb-sidebar__link--active {
-  background: #ffffff;
-  color: var(--mdb-navy);
+  color: #fff;
   font-weight: 700;
 }
+
+
 
 .mdb-sidebar__icon {
   object-fit: contain;
@@ -93,7 +94,6 @@
 }
 
 
-/* ===================== MAIN ===================== */
 .mdb-main {
   flex: 1;
   min-width: 0;
@@ -101,7 +101,6 @@
   flex-direction: column;
 }
 
-/* ===================== HEADER ===================== */
 .mdb-header {
   background: var(--mdb-header-bg);
   display: flex;
@@ -224,7 +223,7 @@
   color: #4b5670;
 }
 
-/* ===================== CONTENT ===================== */
+
 .mdb-content {
   padding: 28px 32px 48px;
   display: flex;
@@ -232,7 +231,6 @@
   gap: 24px;
 }
 
-/* ---------- Stat cards ---------- */
 .mdb-stats-row {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -302,7 +300,7 @@
   color: var(--mdb-text-muted);
 }
 
-/* ---------- Shared panel ---------- */
+
 .mdb-panel {
   background: var(--mdb-card-bg);
   border-radius: var(--mdb-radius);
@@ -365,7 +363,7 @@
   text-decoration: underline;
 }
 
-/* ---------- Middle row ---------- */
+
 .mdb-mid-row {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1.1fr;
@@ -461,7 +459,6 @@
   font-weight: 600;
 }
 
-/* Deadlines */
 .mdb-deadline-list {
   list-style: none;
   display: flex;
@@ -539,7 +536,7 @@
   color: #1d4ed8;
 }
 
-/* ---------- Bottom row ---------- */
+
 .mdb-bottom-row {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
@@ -547,7 +544,7 @@
   align-items: stretch;
 }
 
-/* Activities */
+
 .mdb-activity-list {
   list-style: none;
   display: flex;
@@ -729,7 +726,7 @@
   display: inline-block;
 }
 
-/* ===================== RESPONSIVE ===================== */
+
 @media (max-width: 1200px) {
   .mdb-stats-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));

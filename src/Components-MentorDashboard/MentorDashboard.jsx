@@ -58,17 +58,19 @@ import person4 from "../assets/DashBoard/4140048 1.png";
 
 const NAV_ITEMS = [
   { key: "dashboard", label: "Dashboard", icon: iconHome, path: "/mentor-dashboard" },
-  { key: "my-interns", label: "My Interns", icon: iconPersonOutline, path: "#" },
-  { key: "tasks-reviews", label: "Tasks & Reviews", icon: iconTick, path: "#" },
+  { key: "my-interns", label: "My Interns", icon: iconPersonOutline2, path: "#" },
+  { key: "tasks-reviews", label: "Tasks & Reviews", icon: iconNotepad, path: "#" },
   { key: "attendance", label: "Attendance", icon: iconClock, path: "#" },
   { key: "performance", label: "Performance", icon: iconStats, path: "#" },
-  { key: "messages", label: "Messages", icon: iconMessage, path: "#" },
+  { key: "messages", label: "Messages", icon: iconMessage2, path: "#" },
   { key: "resources", label: "Resources", icon: iconResource, path: "#" },
   { key: "announcements", label: "Announcements", icon: iconSpeaker, path: "#" },
-  { key: "reports", label: "Reports", icon: iconReports, path: "#" },
+  { key: "reports", label: "Reports", icon: iconNotepad, path: "#" },
+
   { key: "calendar", label: "Calender", icon: iconCalendar, path: "#" },
   { key: "settings", label: "Settings", icon: iconSettings, path: "#" },
 ];
+
 
 const STAT_ICON_MAP = {
   totalInterns: iconPersonOutline2,
