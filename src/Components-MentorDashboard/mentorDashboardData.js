@@ -1,4 +1,4 @@
-// Static mock data for the Mentor Dashboard (to be wired to a real API later)
+// Static mock data for the Mentor Dashboard as per the design.
 
 export const STAT_CARDS = [
   {
