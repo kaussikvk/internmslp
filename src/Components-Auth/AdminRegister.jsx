@@ -1,5 +1,6 @@
-import adminRoomIcon from "../assets/Auth/Icon-adminroom.png";
-import iconAdmin from "../assets/Auth/Icon-admin.png";
+import adminRoomIcon from "../assets/Auth/adminroom.png";
+import iconAdmin from "../assets/Auth/admin.png";
+
 import { ShieldCheckIcon } from "./AuthIcons";
 
 export const ADMIN_ROLE_CONFIG = {

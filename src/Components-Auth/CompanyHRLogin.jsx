@@ -10,7 +10,8 @@ import { EyeIcon, EyeOffIcon, GoogleGIcon, UserIcon } from "./AuthIcons";
 
 
 import bgImage from "../assets/Auth/Background Image.png";
-import iconLock from "../assets/Auth/Icon-Locks.png";
+import iconLock from "../assets/Auth/Locks.png";
+
 
 export default function CompanyHRLogin() {
   const navigate = useNavigate();

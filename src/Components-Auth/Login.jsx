@@ -8,10 +8,11 @@ import "./LoginOverrides.css";
 import { EyeIcon, EyeOffIcon, GoogleGIcon } from "./AuthIcons";
 
 
-import loginIllustration from "../assets/Auth/icon-shield.png";
-import iconVerified from "../assets/Auth/icon-verified.png";
-import iconMail from "../assets/Auth/Icon-mails.png";
-import iconLock from "../assets/Auth/Icon-Locks.png";
+import loginIllustration from "../assets/Auth/shield.png";
+import iconVerified from "../assets/Auth/verified.png";
+import iconMail from "../assets/Auth/mails.png";
+import iconLock from "../assets/Auth/Locks.png";
+
 
 export default function Login() {
   const navigate = useNavigate();

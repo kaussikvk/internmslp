@@ -6,8 +6,9 @@ import "./AuthExtras.css";
 import { ShieldCheckIcon } from "./AuthIcons";
 
 
-import iconMail from "../assets/Auth/icon-mail.png";
-import iconMobile from "../assets/Auth/icon-mobile.png";
+import iconMail from "../assets/Auth/mail.png";
+import iconMobile from "../assets/Auth/mobile.png";
+
 
 export default function TwoStepVerification() {
   const navigate = useNavigate();

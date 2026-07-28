@@ -7,7 +7,8 @@ import "./AuthExtras.css";
 
 import verifyCodeShield from "../assets/Auth/verifycodeshield.png";
 import newPasswordIcon from "../assets/Auth/newpassword.png";
-import iconLock from "../assets/Auth/icon-lock-alt.png";
+import iconLock from "../assets/Auth/lock-alt.png";
+
 
 export default function ResetPassword() {
   const navigate = useNavigate();

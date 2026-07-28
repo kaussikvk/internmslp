@@ -4,10 +4,11 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./AuthExtras.css";
 
-import iconForgotPassword from "../assets/Auth/icon-forgot-password.png";
+import iconForgotPassword from "../assets/Auth/forgot-password.png";
 
-import iconMail from "../assets/Auth/icon-mail.png";
-import iconMobile from "../assets/Auth/icon-mobile.png";
+import iconMail from "../assets/Auth/mail.png";
+import iconMobile from "../assets/Auth/mobile.png";
+
 
 export default function ForgotPassword() {
   const navigate = useNavigate();

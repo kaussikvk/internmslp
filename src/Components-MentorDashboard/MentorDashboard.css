@@ -13,7 +13,7 @@
   --mdb-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
 }
 
-.mdb-shell {
+.MentorDashboardContainer {
   display: flex;
   min-height: 100vh;
   width: 100%;
@@ -22,12 +22,12 @@
   color: var(--mdb-text);
 }
 
-.mdb-shell * {
+.MentorDashboardContainer * {
   box-sizing: border-box;
 }
 
 
-.mdb-sidebar {
+.MentorSidebar {
   width: var(--mdb-sidebar-width);
   flex-shrink: 0;
   background: var(--mdb-navy);
@@ -39,23 +39,23 @@
   top: 0;
 }
 
-.mdb-sidebar__brand {
+.MentorLogoSection {
   padding: 28px 24px 20px;
 }
 
-.mdb-sidebar__logo {
+.MentorLogoSection h2 {
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0.01em;
 }
 
-.mdb-sidebar__tagline {
+.MentorLogoSection p {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.55);
   margin-top: 4px;
 }
 
-.mdb-sidebar__nav {
+.MentorSidebarNav {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -63,7 +63,7 @@
   overflow-y: auto;
 }
 
-.mdb-sidebar__link {
+.MentorNavItem {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -76,32 +76,32 @@
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-.mdb-sidebar__link:hover {
+.MentorNavItem:hover {
   background: rgba(255, 255, 255, 0.3);
   color: #fff;
 }
 
-.mdb-sidebar__link--active {
+.MentorNavItem.active {
   color: #fff;
   font-weight: 700;
 }
 
 
 
-.mdb-sidebar__icon {
+.MentorNavIcon {
   object-fit: contain;
   flex-shrink: 0;
 }
 
 
-.mdb-main {
+.MentorMainContainer {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
-.mdb-header {
+.MentorNavbar {
   background: var(--mdb-header-bg);
   display: flex;
   align-items: center;
@@ -110,33 +110,39 @@
   flex-wrap: wrap;
 }
 
-.mdb-header__menu-btn {
-  background: none;
-  border: none;
-  color: var(--mdb-navy);
-  cursor: pointer;
+.MentorNavbarLeft {
   display: flex;
   align-items: center;
-  padding: 4px;
+  gap: 16px;
 }
 
-.mdb-header__welcome {
+.Hamburger {
+  color: var(--mdb-navy);
+  cursor: pointer;
+}
+
+.MentorWelcomeSection {
   display: flex;
   flex-direction: column;
-  margin-right: auto;
 }
 
-.mdb-header__welcome strong {
+.MentorWelcomeSection h4 {
   font-size: 1rem;
   color: var(--mdb-navy);
 }
 
-.mdb-header__welcome span {
+.MentorWelcomeSection p {
   font-size: 0.8rem;
   color: #4b5670;
 }
 
-.mdb-header__search {
+.MentorNavbarCenter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.MentorSearchBox {
   flex: 1;
   max-width: 420px;
   min-width: 180px;
@@ -149,7 +155,7 @@
   color: #9aa2b1;
 }
 
-.mdb-header__search input {
+.MentorSearchBox input {
   border: none;
   outline: none;
   background: transparent;
@@ -158,21 +164,24 @@
   color: var(--mdb-text);
 }
 
-.mdb-header__icon-btn {
+.MentorNavbarRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.NotificationSection {
   position: relative;
-  background: none;
-  border: none;
   cursor: pointer;
   color: var(--mdb-navy);
   display: flex;
   align-items: center;
-  padding: 6px;
 }
 
-.mdb-header__notif-dot {
+.NotificationBadge {
   position: absolute;
-  top: 4px;
-  right: 4px;
+  top: -2px;
+  right: -2px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -180,14 +189,7 @@
   border: 1.5px solid var(--mdb-header-bg);
 }
 
-.mdb-header__profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.mdb-header__avatar {
+.MentorProfileCircle {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -197,9 +199,10 @@
   justify-content: center;
   color: var(--mdb-navy);
   overflow: hidden;
+  cursor: pointer;
 }
 
-.mdb-header__avatar img {
+.MentorProfileCircle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -207,37 +210,42 @@
 }
 
 
-.mdb-header__profile-text {
+.MentorDetails {
   display: flex;
   flex-direction: column;
   line-height: 1.15;
+  cursor: pointer;
 }
 
-.mdb-header__profile-text strong {
+.MentorDetails h4 {
   font-size: 0.88rem;
   color: var(--mdb-navy);
 }
 
-.mdb-header__profile-text span {
+.MentorDetails p {
   font-size: 0.72rem;
   color: #4b5670;
 }
 
+.ProfileArrow {
+  cursor: pointer;
+}
 
-.mdb-content {
+
+.MentorDashboardContent {
   padding: 28px 32px 48px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.mdb-stats-row {
+.MentorStatsContainer {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px;
 }
 
-.mdb-stat-card {
+.MentorStatCard {
   background: var(--mdb-card-bg);
   border-radius: var(--mdb-radius);
   box-shadow: var(--mdb-shadow);
@@ -247,7 +255,11 @@
   gap: 4px;
 }
 
-.mdb-stat-card__icon {
+.InternIconContainer,
+.ActiveInternIconContainer,
+.TaskIconContainer,
+.ReviewIconContainer,
+.StarIconContainer {
   width: 42px;
   height: 42px;
   border-radius: 10px;
@@ -257,73 +269,91 @@
   margin-bottom: 10px;
 }
 
-.mdb-stat-card__icon img {
+.InternIconContainer img,
+.ActiveInternIconContainer img,
+.TaskIconContainer img,
+.ReviewIconContainer img,
+.StarIconContainer img {
   object-fit: contain;
 }
 
 
-.mdb-stat-card__icon--purple {
+.InternIconContainer {
   background: #ede9fe;
   color: #7c3aed;
 }
-.mdb-stat-card__icon--green {
+.ActiveInternIconContainer {
   background: #dcfce7;
   color: #16a34a;
 }
-.mdb-stat-card__icon--orange {
+.TaskIconContainer {
   background: #ffedd5;
   color: #ea580c;
 }
-.mdb-stat-card__icon--blue {
+.ReviewIconContainer {
   background: #dbeafe;
   color: #2563eb;
 }
-.mdb-stat-card__icon--pink {
+.StarIconContainer {
   background: #fce7f3;
   color: #db2777;
 }
 
-.mdb-stat-card__value {
+.MentorStatContent h2 {
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--mdb-text);
 }
 
-.mdb-stat-card__label {
+.MentorStatContent p:first-of-type {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--mdb-text);
 }
 
-.mdb-stat-card__sub {
+.MentorStatContent p:last-of-type {
   font-size: 0.76rem;
   color: var(--mdb-text-muted);
 }
 
 
-.mdb-panel {
+.PerformanceCard,
+.InternStatusCard,
+.DeadlineCard,
+.RecentActivityCard,
+.TopInternCard,
+.ScheduleCard {
   background: var(--mdb-card-bg);
   border-radius: var(--mdb-radius);
   box-shadow: var(--mdb-shadow);
   padding: 22px 22px 18px;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
-.mdb-panel__header {
+
+.PerformanceCardHeader,
+.TopInternHeader,
+.ScheduleHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
 
-.mdb-panel__header h3 {
+.PerformanceCardHeader h3,
+.InternStatusCard > h3,
+.DeadlineCard > h3,
+.RecentActivityCard > h3,
+.TopInternHeader h3,
+.ScheduleHeader h3 {
   font-size: 1.02rem;
   font-weight: 700;
   color: var(--mdb-text);
 }
 
-.mdb-dropdown-btn {
+.SelectedMonth {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -337,45 +367,49 @@
   cursor: pointer;
 }
 
-.mdb-viewall-link {
+.TopInternHeader a,
+.ScheduleHeader a {
   font-size: 0.85rem;
   font-weight: 600;
   color: #2563eb;
   text-decoration: none;
 }
 
-.mdb-viewall-link:hover {
+.TopInternHeader a:hover,
+.ScheduleHeader a:hover {
   text-decoration: underline;
 }
 
-.mdb-panel__footer-link {
+.ViewAllDeadlines,
+.ActivityFooter,
+.ScheduleFooter {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
   font-size: 0.85rem;
   font-weight: 600;
   color: #2563eb;
   text-decoration: none;
 }
 
-.mdb-panel__footer-link:hover {
+
+.ViewAllDeadlines:hover,
+.ActivityFooter:hover,
+.ScheduleFooter:hover {
   text-decoration: underline;
 }
 
 
-.mdb-mid-row {
+.MentorAnalyticsSection {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1.1fr;
   gap: 20px;
   align-items: stretch;
 }
 
-.mdb-chart-wrap {
-  width: 100%;
-}
-
-.mdb-chart-legend {
+.ChartPoint {
   display: flex;
   gap: 24px;
   margin-top: 10px;
@@ -383,36 +417,36 @@
   color: var(--mdb-text-muted);
 }
 
-.mdb-chart-legend span {
+.ChartPoint span {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.mdb-legend-dot {
+.PointDot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.mdb-legend-dot--purple {
+.PointDot.Blue {
   background: #4338ca;
 }
 
-.mdb-legend-dot--green {
+.PointDot.Green {
   background: #22c55e;
 }
 
 /* Donut */
-.mdb-donut-wrap {
+.DonutChartContainer {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.mdb-donut-center {
+.DonutChartCenter {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -423,56 +457,77 @@
   line-height: 1.1;
 }
 
-.mdb-donut-center strong {
+.DonutChartCenter h2 {
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--mdb-text);
 }
 
-.mdb-donut-center span {
+.DonutChartCenter p {
   font-size: 0.78rem;
   color: var(--mdb-text-muted);
 }
 
-.mdb-donut-legend {
+.InternStatusContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.StatusPoint {
   list-style: none;
   margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 
-.mdb-donut-legend li {
+.StatusPoint > div {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 0.85rem;
 }
 
-.mdb-donut-legend li span {
+.StatusPoint p {
   flex: 1;
   color: var(--mdb-text);
 }
 
-.mdb-donut-legend li strong {
-  color: var(--mdb-text-muted);
-  font-weight: 600;
+.StatusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
-.mdb-deadline-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.StatusDot.Green {
+  background: #22c55e;
 }
 
-.mdb-deadline-item {
+.StatusDot.Yellow {
+  background: #eab308;
+}
+
+.StatusDot.Red {
+  background: #ef4444;
+}
+
+.DeadlineItem {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding: 14px 0;
 }
 
-.mdb-deadline-date {
+.DeadlineItem:last-child {
+  border-bottom: 1px solid var(--mdb-border);
+}
+
+
+.DeadlineDateBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -485,35 +540,42 @@
   line-height: 1.1;
 }
 
-.mdb-deadline-date span {
+.DeadlineDateBox span {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
 
-.mdb-deadline-date strong {
+.DeadlineDateBox h4 {
   font-size: 1.05rem;
   font-weight: 800;
 }
 
-.mdb-deadline-info {
+.DeadlineContent {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
-.mdb-deadline-info strong {
+.DeadlineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.DeadlineHeader h4 {
   font-size: 0.9rem;
   color: var(--mdb-text);
 }
 
-.mdb-deadline-info span {
+.DeadlineContent > p {
   font-size: 0.78rem;
   color: var(--mdb-text-muted);
 }
 
-.mdb-deadline-pill {
+.DeadlineStatus {
   font-size: 0.72rem;
   font-weight: 700;
   padding: 5px 10px;
@@ -521,23 +583,23 @@
   white-space: nowrap;
 }
 
-.mdb-deadline-pill--high {
+.DeadlineStatus.Red {
   background: #fee2e2;
   color: #dc2626;
 }
 
-.mdb-deadline-pill--medium {
+.DeadlineStatus.Yellow {
   background: #fef3c7;
   color: #b45309;
 }
 
-.mdb-deadline-pill--low {
+.DeadlineStatus.IceBlue {
   background: #dbeafe;
   color: #1d4ed8;
 }
 
 
-.mdb-bottom-row {
+.MentorBottomSection {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
   gap: 20px;
@@ -545,27 +607,22 @@
 }
 
 
-.mdb-activity-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.mdb-activity-item {
+.ActivityItem {
   display: flex;
   gap: 14px;
   align-items: flex-start;
   padding-bottom: 14px;
+  margin-bottom: 14px;
   border-bottom: 1px solid var(--mdb-border);
 }
 
-.mdb-activity-item:last-child {
+.ActivityItem:last-of-type {
   border-bottom: none;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 
-.mdb-activity-icon {
+.ActivityIconContainer {
   width: 36px;
   height: 36px;
   border-radius: 9px;
@@ -575,58 +632,57 @@
   flex-shrink: 0;
 }
 
-.mdb-activity-icon img {
+.ActivityIconContainer img {
   object-fit: contain;
 }
 
 
-.mdb-activity-icon--green {
+.ActivityIconContainerGreen {
   background: #dcfce7;
   color: #16a34a;
 }
 
-.mdb-activity-icon--teal {
+.ActivityIconContainerBlue {
   background: #cffafe;
   color: #0891b2;
 }
 
-.mdb-activity-icon--yellow {
+.ActivityIconContainerYellow {
   background: #fef9c3;
   color: #ca8a04;
 }
 
-.mdb-activity-icon--pink {
+.ActivityIconContainerPink {
   background: #fce7f3;
   color: #db2777;
 }
 
-.mdb-activity-text p {
+.ActivityContent h4 {
   font-size: 0.87rem;
   color: var(--mdb-text);
   margin-bottom: 2px;
   line-height: 1.35;
+  font-weight: 500;
 }
 
-.mdb-activity-text span {
+.ActivityContent p {
   font-size: 0.76rem;
   color: var(--mdb-text-muted);
 }
 
 /* Top performing interns */
-.mdb-top-interns-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.mdb-top-intern-item {
+.TopInternItem {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 18px;
 }
 
-.mdb-top-intern-avatar {
+.TopInternItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.TopInternImage {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -637,11 +693,11 @@
 }
 
 
-.mdb-top-intern-bar-wrap {
+.ProgressSection {
   flex: 1;
 }
 
-.mdb-top-intern-bar-track {
+.ProgressBar {
   width: 100%;
   height: 8px;
   border-radius: 6px;
@@ -649,13 +705,13 @@
   overflow: hidden;
 }
 
-.mdb-top-intern-bar-fill {
+.ProgressFill {
   height: 100%;
   border-radius: 6px;
   background: linear-gradient(90deg, #22c55e, #16a34a);
 }
 
-.mdb-top-intern-score {
+.TopInternItem h4 {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--mdb-text);
@@ -664,34 +720,32 @@
 }
 
 /* Schedule */
-.mdb-schedule-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.mdb-schedule-item {
+.ScheduleItem {
   display: flex;
   gap: 14px;
   align-items: flex-start;
   border-radius: 10px;
   padding: 12px 14px;
+  margin-bottom: 14px;
 }
 
-.mdb-schedule-item--purple {
+.ScheduleItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.ScheduleItem.SchedulePurple {
   background: #f1edff;
 }
 
-.mdb-schedule-item--orange {
+.ScheduleItem.ScheduleOrange {
   background: #fff4e6;
 }
 
-.mdb-schedule-item--teal {
+.ScheduleItem.ScheduleTeal {
   background: #e6fbf7;
 }
 
-.mdb-schedule-time {
+.ScheduleTime {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--mdb-text);
@@ -699,18 +753,18 @@
   min-width: 66px;
 }
 
-.mdb-schedule-info {
+.ScheduleContent {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.mdb-schedule-info strong {
+.ScheduleContent h4 {
   font-size: 0.86rem;
   color: var(--mdb-text);
 }
 
-.mdb-schedule-info span {
+.ScheduleContent p {
   font-size: 0.76rem;
   color: var(--mdb-text-muted);
   display: flex;
@@ -718,7 +772,7 @@
   gap: 6px;
 }
 
-.mdb-schedule-dot {
+.ScheduleDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -728,55 +782,55 @@
 
 
 @media (max-width: 1200px) {
-  .mdb-stats-row {
+  .MentorStatsContainer {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .mdb-mid-row {
+  .MentorAnalyticsSection {
     grid-template-columns: 1fr;
   }
 
-  .mdb-bottom-row {
+  .MentorBottomSection {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 900px) {
-  .mdb-shell {
+  .MentorDashboardContainer {
     flex-direction: column;
   }
 
-  .mdb-sidebar {
+  .MentorSidebar {
     width: 100%;
     min-height: auto;
     position: relative;
   }
 
-  .mdb-sidebar__nav {
+  .MentorSidebarNav {
     flex-direction: row;
     overflow-x: auto;
     white-space: nowrap;
   }
 
-  .mdb-stats-row {
+  .MentorStatsContainer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .mdb-header {
+  .MentorNavbar {
     padding: 14px 18px;
   }
 
-  .mdb-content {
+  .MentorDashboardContent {
     padding: 20px 18px 40px;
   }
 }
 
 @media (max-width: 560px) {
-  .mdb-stats-row {
+  .MentorStatsContainer {
     grid-template-columns: 1fr;
   }
 
-  .mdb-header__welcome {
+  .MentorWelcomeSection {
     order: -1;
     width: 100%;
   }
