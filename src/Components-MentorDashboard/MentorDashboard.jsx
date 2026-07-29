@@ -299,18 +299,21 @@ export default function MentorDashboard() {
             <div className="InternStatusCard">
               <h3>Intern By Status</h3>
               <div className="InternStatusContent">
-                <div className="DonutChartContainer">
-                  <ResponsiveContainer width="100%" height={200}>
+                <div className="DonutChartContainer" style={{ width: 220, height: 220 }}>
+                  <ResponsiveContainer width="100%" height="100%" minWidth={220} minHeight={220}>
                     <PieChart>
                       <Pie
                         data={INTERN_STATUS_DATA}
                         dataKey="value"
                         nameKey="name"
+                        cx="50%"
+                        cy="50%"
                         innerRadius={58}
                         outerRadius={82}
                         paddingAngle={2}
                         startAngle={90}
                         endAngle={-270}
+                        isAnimationActive={false}
                       >
                         {INTERN_STATUS_DATA.map((item) => (
                           <Cell key={item.name} fill={item.color} stroke="none" />
@@ -318,6 +321,7 @@ export default function MentorDashboard() {
                       </Pie>
                     </PieChart>
                   </ResponsiveContainer>
+
 
                   <div className="DonutChartCenter">
                     <h2>12</h2>
