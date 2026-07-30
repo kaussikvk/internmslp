@@ -71,7 +71,6 @@ export default function CompanyHRLogin() {
 
   return (
     <div className="ims-login-page ims-hrlogin-page">
-      {/* LEFT - brand panel */}
       <div
         className="ims-login-left ims-hrlogin-left"
         style={{ backgroundImage: `url(${bgImage})` }}
@@ -112,8 +111,7 @@ export default function CompanyHRLogin() {
           &copy; 2024 HR and Company Portal. All rights reserved.
         </p>
       </div>
-
-      {/* RIGHT - form panel */}
+      
       <div className="ims-login-right">
         <div className="ims-login-form-wrap">
           <h2>Welcome Back</h2>

@@ -51,7 +51,6 @@ export default function ResetPassword() {
         </div>
       </div>
 
-      {/* RIGHT */}
       <div className="ims-login-right">
         <div className="ims-login-form-wrap">
           <div className="ims-auth-badge-icon">
