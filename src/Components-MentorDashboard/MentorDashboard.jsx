@@ -26,7 +26,7 @@ import search from "../assets/DashBoard/search.png";
 import bell from "../assets/DashBoard/Bell.png";
 import profile from "../assets/DashBoard/ProfileIcon-dashboard.png";
 
-import personOutline2 from "../assets/DashBoard/icon-person-outline-filled.png";
+import personOutline2 from "../assets/DashBoard/person-outline-filled.png";
 
 import greenTick from "../assets/DashBoard/greentick.png";
 import brownPad from "../assets/DashBoard/brownpad.png";
@@ -34,7 +34,7 @@ import greenStats from "../assets/DashBoard/greenstats.png";
 import star from "../assets/DashBoard/star.png";
 
 import message2 from "../assets/DashBoard/Message2.png";
-import f7Person from "../assets/DashBoard/icon-person-simple.png";
+import f7Person from "../assets/DashBoard/person-simple.png";
 import notepad from "../assets/DashBoard/notepad.png";
 
 
