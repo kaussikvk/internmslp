@@ -524,3 +524,41 @@
   justify-content: center;
   width: 100%;
 }
+
+/* ===== Merged from AuthExtras.css ===== */
+
+.ims-input-icon-wrap {
+  position: relative;
+}
+
+.ims-input-icon-wrap img,
+.ims-input-icon-wrap svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.ims-icon-grey {
+  filter: grayscale(100%) brightness(0.75);
+  opacity: 0.7 !important;
+}
+
+.ims-input-icon-wrap input {
+  width: 100%;
+  padding: 12px 14px 12px 46px;
+  border-radius: 8px;
+  border: 1px solid var(--ims-border);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.ims-input-icon-wrap input:focus {
+  border-color: var(--ims-primary);
+}
+

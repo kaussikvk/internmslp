@@ -1,7 +1,26 @@
 import adminRoomIcon from "../assets/Auth/adminroom.png";
 import iconAdmin from "../assets/Auth/admin.png";
 
-import { ShieldCheckIcon } from "./AuthIcons";
+function ShieldCheckIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.5 12l2.5 2.5L15.5 9"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 
 export const ADMIN_ROLE_CONFIG = {
   label: "Admin",

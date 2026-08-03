@@ -14,59 +14,62 @@ import {
 } from "recharts";
 import "./MentorDashboard.css";
 
-import iconHome from "../assets/DashBoard/Home.png";
-import iconClock from "../assets/DashBoard/Clock.png";
-import iconStats from "../assets/DashBoard/Stats.png";
-import iconResource from "../assets/DashBoard/Resourse.png";
-import iconSpeaker from "../assets/DashBoard/speaker.png";
-import iconCalendar from "../assets/DashBoard/Calender.png";
-import iconSettings from "../assets/DashBoard/settings.png";
+import home from "../assets/DashBoard/Home.png";
+import clock from "../assets/DashBoard/Clock.png";
+import stats from "../assets/DashBoard/Stats.png";
+import resource from "../assets/DashBoard/Resourse.png";
+import speaker from "../assets/DashBoard/speaker.png";
+import calendar from "../assets/DashBoard/Calender.png";
+import settings from "../assets/DashBoard/settings.png";
 
-import iconSearch from "../assets/DashBoard/search.png";
-import iconBell from "../assets/DashBoard/Bell.png";
-import iconProfile from "../assets/DashBoard/ProfileIcon-dashboard.png";
+import search from "../assets/DashBoard/search.png";
+import bell from "../assets/DashBoard/Bell.png";
+import profile from "../assets/DashBoard/ProfileIcon-dashboard.png";
 
-import iconPersonOutline2 from "../assets/DashBoard/Personoutline2.png";
-import iconGreenTick from "../assets/DashBoard/greentick.png";
-import iconBrownPad from "../assets/DashBoard/brownpad.png";
-import iconGreenStats from "../assets/DashBoard/greenstats.png";
-import iconStar from "../assets/DashBoard/star.png";
+import personOutline2 from "../assets/DashBoard/icon-person-outline-filled.png";
 
-import iconMessage2 from "../assets/DashBoard/Message2.png";
-import iconF7Person from "../assets/DashBoard/person-icon.png";
-import iconNotepad from "../assets/DashBoard/notepad.png";
+import greenTick from "../assets/DashBoard/greentick.png";
+import brownPad from "../assets/DashBoard/brownpad.png";
+import greenStats from "../assets/DashBoard/greenstats.png";
+import star from "../assets/DashBoard/star.png";
 
-import iconHamburger from "../assets/DashBoard/hamburger.png";
-import iconDownArrow from "../assets/DashBoard/down-arrow.png";
-import iconRightArrow from "../assets/DashBoard/right-arrow.png";
+import message2 from "../assets/DashBoard/Message2.png";
+import f7Person from "../assets/DashBoard/icon-person-simple.png";
+import notepad from "../assets/DashBoard/notepad.png";
 
-import person1 from "../assets/DashBoard/Person1-dashboard.png";
-import person2 from "../assets/DashBoard/Person2-Dashboard.png";
-import person3 from "../assets/DashBoard/Person3-dashboard.png";
-import person4 from "../assets/DashBoard/person4.png";
+
+import hamburger from "../assets/DashBoard/hamburger.png";
+import downArrow from "../assets/DashBoard/down-arrow.png";
+import rightArrow from "../assets/DashBoard/right-arrow.png";
+
+import person1 from "../assets/DashBoard/intern-priya-sharma.png";
+import person2 from "../assets/DashBoard/intern-rahul-mehta.png";
+import person3 from "../assets/DashBoard/intern-aryan-verma.png";
+import person4 from "../assets/DashBoard/intern-vikram-singh.png";
 
 
 const NAV_ITEMS = [
-  { label: "Dashboard", icon: iconHome, path: "/mentor-dashboard", alt: "Home" },
-  { label: "My Interns", icon: iconPersonOutline2, path: "#", alt: "intern-user" },
-  { label: "Tasks & Reviews", icon: iconNotepad, path: "#", alt: "task" },
-  { label: "Attendance", icon: iconClock, path: "#", alt: "clock" },
-  { label: "Performance", icon: iconStats, path: "#", alt: "performicon" },
-  { label: "Messages", icon: iconMessage2, path: "#", alt: "message" },
-  { label: "Resources", icon: iconResource, path: "#", alt: "resourceicon" },
-  { label: "Announcements", icon: iconSpeaker, path: "#", alt: "speaker" },
-  { label: "Reports", icon: iconNotepad, path: "#", alt: "report" },
-  { label: "Calender", icon: iconCalendar, path: "#", alt: "calendar" },
-  { label: "Settings", icon: iconSettings, path: "#", alt: "settings" },
+  { label: "Dashboard", icon: home, path: "/mentor-dashboard", alt: "Home" },
+  { label: "My Interns", icon: personOutline2, path: "#", alt: "intern-user" },
+  { label: "Tasks & Reviews", icon: notepad, path: "#", alt: "task" },
+  { label: "Attendance", icon: clock, path: "#", alt: "clock" },
+  { label: "Performance", icon: stats, path: "#", alt: "performicon" },
+  { label: "Messages", icon: message2, path: "#", alt: "message" },
+  { label: "Resources", icon: resource, path: "#", alt: "resourceicon" },
+  { label: "Announcements", icon: speaker, path: "#", alt: "speaker" },
+  { label: "Reports", icon: notepad, path: "#", alt: "report" },
+  { label: "Calender", icon: calendar, path: "#", alt: "calendar" },
+  { label: "Settings", icon: settings, path: "#", alt: "settings" },
 ];
 
 const STAT_CARDS = [
-  { key: "totalInterns", containerClass: "InternIconContainer", icon: iconPersonOutline2, iconClass: "InternCount", value: 12, title: "Total Interns", subtitle: "under your guidance" },
-  { key: "activeInterns", containerClass: "ActiveInternIconContainer", icon: iconGreenTick, iconClass: "PresentIcon", value: 8, title: "Active Interns", subtitle: "Currently Active" },
-  { key: "tasksAssigned", containerClass: "TaskIconContainer", icon: iconBrownPad, iconClass: "Clipboard", value: 16, title: "Task Assigned", subtitle: "This Month" },
-  { key: "pendingReviews", containerClass: "ReviewIconContainer", icon: iconGreenStats, iconClass: "Reviews", value: 6, title: "Pending Reviews", subtitle: "Needs your Feedback" },
-  { key: "avgPerformance", containerClass: "StarIconContainer", icon: iconStar, iconClass: "Star", value: "4.7", title: "Average Performance", subtitle: "Out of 5" },
+  { key: "totalInterns", containerClass: "InternIconContainer", icon: personOutline2, iconClass: "InternCount", value: 12, title: "Total Interns", subtitle: "under your guidance" },
+  { key: "activeInterns", containerClass: "ActiveInternIconContainer", icon: greenTick, iconClass: "PresentIcon", value: 8, title: "Active Interns", subtitle: "Currently Active" },
+  { key: "tasksAssigned", containerClass: "TaskIconContainer", icon: brownPad, iconClass: "Clipboard", value: 16, title: "Task Assigned", subtitle: "This Month" },
+  { key: "pendingReviews", containerClass: "ReviewIconContainer", icon: greenStats, iconClass: "Reviews", value: 6, title: "Pending Reviews", subtitle: "Needs your Feedback" },
+  { key: "avgPerformance", containerClass: "StarIconContainer", icon: star, iconClass: "Star", value: "4.7", title: "Average Performance", subtitle: "Out of 5" },
 ];
+
 
 const PERFORMANCE_DATA = [
   { week: "Week 1", averageScore: 20, taskCompletion: 5 },
@@ -89,11 +92,12 @@ const DEADLINE_DATA = [
 ];
 
 const RECENT_ACTIVITY_DATA = [
-  { id: 1, icon: iconGreenTick, bgColor: "ActivityIconContainerGreen", title: 'Aryan verma submitted the task "Landing Page Design"', time: "2 Hours ago" },
-  { id: 2, icon: iconMessage2, bgColor: "ActivityIconContainerBlue", title: 'You reviewed Neha singh\u2019s task " User Research Report"', time: "5 Hours ago" },
-  { id: 3, icon: iconF7Person, bgColor: "ActivityIconContainerYellow", title: "Rahul Mehta marked attendance for today", time: "1 Day ago" },
-  { id: 4, icon: iconNotepad, bgColor: "ActivityIconContainerPink", title: 'New resources "Design System Guidelines" shared', time: "2 Days ago" },
+  { id: 1, icon: greenTick, bgColor: "ActivityIconContainerGreen", title: 'Aryan verma submitted the task "Landing Page Design"', time: "2 Hours ago" },
+  { id: 2, icon: message2, bgColor: "ActivityIconContainerBlue", title: 'You reviewed Neha singh\u2019s task " User Research Report"', time: "5 Hours ago" },
+  { id: 3, icon: f7Person, bgColor: "ActivityIconContainerYellow", title: "Rahul Mehta marked attendance for today", time: "1 Day ago" },
+  { id: 4, icon: notepad, bgColor: "ActivityIconContainerPink", title: 'New resources "Design System Guidelines" shared', time: "2 Days ago" },
 ];
+
 
 const TOP_INTERN_DATA = [
   { id: 1, image: person1, name: "Priya Sharma", progress: 90 },
@@ -222,7 +226,8 @@ export default function MentorDashboard() {
       <div className="MentorMainContainer">
         <div className="MentorNavbar">
           <div className="MentorNavbarLeft">
-            <img src={iconHamburger} className="Hamburger" alt="HamburgerIcon" width={22} height={22} />
+            <img src={hamburger} className="Hamburger" alt="HamburgerIcon" width={22} height={22} />
+
 
             <div className="MentorWelcomeSection">
               <h4>Welcome back, Mentor</h4>
@@ -232,19 +237,19 @@ export default function MentorDashboard() {
 
           <div className="MentorNavbarCenter">
             <div className="MentorSearchBox">
-              <img src={iconSearch} className="SearchIcon" alt="search" width={18} height={18} />
+              <img src={search} className="SearchIcon" alt="search" width={18} height={18} />
               <input type="text" placeholder="Search anything......" />
             </div>
           </div>
 
           <div className="MentorNavbarRight">
             <div className="NotificationSection">
-              <img src={iconBell} className="NotificationIcon" alt="NotificationIcon" width={20} height={20} />
+              <img src={bell} className="NotificationIcon" alt="NotificationIcon" width={20} height={20} />
               <span className="NotificationBadge"></span>
             </div>
 
             <div className="MentorProfileCircle">
-              <img src={iconProfile} className="MentorProfileImage" alt="mentor-icon" width={38} height={38} />
+              <img src={profile} className="MentorProfileImage" alt="mentor-icon" width={38} height={38} />
             </div>
 
             <div className="MentorDetails">
@@ -252,7 +257,7 @@ export default function MentorDashboard() {
               <p>Mentor Dashboard</p>
             </div>
 
-            <img src={iconDownArrow} className="ProfileArrow" alt="arrow" width={11} height={11} />
+            <img src={downArrow} className="ProfileArrow" alt="arrow" width={11} height={11} />
           </div>
         </div>
 
@@ -269,7 +274,7 @@ export default function MentorDashboard() {
                 <h3>Intern Performance Overview</h3>
                 <span className="SelectedMonth">
                   This Month
-                  <img src={iconDownArrow} className="MonthArrowIcon" alt="arrow" width={10} height={10} />
+                  <img src={downArrow} className="MonthArrowIcon" alt="arrow" width={10} height={10} />
                 </span>
               </div>
 
@@ -350,7 +355,7 @@ export default function MentorDashboard() {
               ))}
 
               <Link to="#" className="ViewAllDeadlines">
-                View All Deadlines <img src={iconRightArrow} className="MentorArrow" alt="arrow" width={14} height={14} />
+                View All Deadlines <img src={rightArrow} className="MentorArrow" alt="arrow" width={14} height={14} />
               </Link>
             </div>
           </div>
@@ -365,7 +370,7 @@ export default function MentorDashboard() {
 
               <Link to="#" className="ActivityFooter">
                 <span>View all activities</span>
-                <img src={iconRightArrow} className="MentorArrow" alt="arrow" width={14} height={14} />
+                <img src={rightArrow} className="MentorArrow" alt="arrow" width={14} height={14} />
               </Link>
             </div>
 
@@ -392,7 +397,7 @@ export default function MentorDashboard() {
 
               <Link to="#" className="ScheduleFooter">
                 <span>View full Schedule</span>
-                <img src={iconRightArrow} className="MentorArrow" alt="arrow" width={14} height={14} />
+                <img src={rightArrow} className="MentorArrow" alt="arrow" width={14} height={14} />
               </Link>
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
-import "./AuthExtras.css";
+
 
 import iconForgotPassword from "../assets/Auth/forgot-password.png";
 

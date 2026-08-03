@@ -3,8 +3,37 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./Register.css";
-import { TrackingIcon, ShieldCheckIcon } from "./AuthIcons";
+
+function TrackingIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ShieldCheckIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.5 12l2.5 2.5L15.5 9"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 import mentorOfficeImg from "../assets/Auth/Mentor-Office.png";
+
 import internAvatarImg from "../assets/Auth/Blueman.png";
 import handshakeIcon from "../assets/Auth/Handshake.png";
 import iconHR from "../assets/Auth/HR.png";
@@ -18,9 +47,9 @@ import sparkleIcon from "../assets/Auth/sparkle1.png";
 import shieldIcon from "../assets/Auth/shield.png";
 import verifiedCircleIcon from "../assets/Auth/Verified circle.png";
 import verifiedShieldIcon from "../assets/Auth/Verified shield.png";
-import AuthFooter from "./AuthFooter";
 
 const HR_BG = "rgba(138, 76, 252, 1)";
+
 const MENTOR_BG = "rgba(79, 70, 229, 1)";
 const COMPANY_BG = "rgba(53, 37, 205, 1)";
 

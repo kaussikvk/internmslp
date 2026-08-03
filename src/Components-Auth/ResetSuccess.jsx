@@ -2,8 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
-import "./AuthExtras.css";
-import { CheckCircleIcon } from "./AuthIcons";
+
+function CheckCircleIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8" />
+      <path
+        d="M7.5 12.5l3 3 6-6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 
 
 import illustrationSuccess from "../assets/Auth/illustration-success.png";
