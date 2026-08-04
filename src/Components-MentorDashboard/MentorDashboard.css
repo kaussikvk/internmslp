@@ -37,6 +37,14 @@
   min-height: 100vh;
   position: sticky;
   top: 0;
+  overflow: hidden;
+  transition: width 0.25s ease, min-width 0.25s ease;
+}
+
+.MentorSidebar.Mentor-DB-SidebarClosed {
+  width: 0;
+  min-width: 0;
+  padding: 0;
 }
 
 .MentorLogoSection {
@@ -116,9 +124,10 @@
   gap: 16px;
 }
 
-.Hamburger {
+.Mentor-DB-Hamburger {
   color: var(--mdb-navy);
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .MentorWelcomeSection {
@@ -170,7 +179,7 @@
   gap: 14px;
 }
 
-.NotificationSection {
+.Mentor-DB-NotificationSection {
   position: relative;
   cursor: pointer;
   color: var(--mdb-navy);
@@ -178,7 +187,7 @@
   align-items: center;
 }
 
-.NotificationBadge {
+.Mentor-DB-NotificationBadge {
   position: absolute;
   top: -2px;
   right: -2px;
@@ -227,7 +236,7 @@
   color: #4b5670;
 }
 
-.ProfileArrow {
+.Mentor-DB-ProfileArrow {
   cursor: pointer;
 }
 
@@ -245,7 +254,7 @@
   gap: 20px;
 }
 
-.MentorStatCard {
+.Mentor-DB-StatCard {
   background: var(--mdb-card-bg);
   border-radius: var(--mdb-radius);
   box-shadow: var(--mdb-shadow);
@@ -255,11 +264,11 @@
   gap: 4px;
 }
 
-.InternIconContainer,
-.ActiveInternIconContainer,
-.TaskIconContainer,
-.ReviewIconContainer,
-.StarIconContainer {
+.Mentor-DB-InternIconContainer,
+.Mentor-DB-ActiveInternIconContainer,
+.Mentor-DB-TaskIconContainer,
+.Mentor-DB-ReviewIconContainer,
+.Mentor-DB-StarIconContainer {
   width: 42px;
   height: 42px;
   border-radius: 10px;
@@ -269,60 +278,60 @@
   margin-bottom: 10px;
 }
 
-.InternIconContainer img,
-.ActiveInternIconContainer img,
-.TaskIconContainer img,
-.ReviewIconContainer img,
-.StarIconContainer img {
+.Mentor-DB-InternIconContainer img,
+.Mentor-DB-ActiveInternIconContainer img,
+.Mentor-DB-TaskIconContainer img,
+.Mentor-DB-ReviewIconContainer img,
+.Mentor-DB-StarIconContainer img {
   object-fit: contain;
 }
 
 
-.InternIconContainer {
+.Mentor-DB-InternIconContainer {
   background: #ede9fe;
   color: #7c3aed;
 }
-.ActiveInternIconContainer {
+.Mentor-DB-ActiveInternIconContainer {
   background: #dcfce7;
   color: #16a34a;
 }
-.TaskIconContainer {
+.Mentor-DB-TaskIconContainer {
   background: #ffedd5;
   color: #ea580c;
 }
-.ReviewIconContainer {
+.Mentor-DB-ReviewIconContainer {
   background: #dbeafe;
   color: #2563eb;
 }
-.StarIconContainer {
+.Mentor-DB-StarIconContainer {
   background: #fce7f3;
   color: #db2777;
 }
 
-.MentorStatContent h2 {
+.Mentor-DB-StatContent h2 {
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--mdb-text);
 }
 
-.MentorStatContent p:first-of-type {
+.Mentor-DB-StatContent p:first-of-type {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--mdb-text);
 }
 
-.MentorStatContent p:last-of-type {
+.Mentor-DB-StatContent p:last-of-type {
   font-size: 0.76rem;
   color: var(--mdb-text-muted);
 }
 
 
-.PerformanceCard,
-.InternStatusCard,
-.DeadlineCard,
-.RecentActivityCard,
-.TopInternCard,
-.ScheduleCard {
+.Mentor-DB-PerformanceCard,
+.Mentor-DB-InternStatusCard,
+.Mentor-DB-DeadlineCard,
+.Mentor-DB-RecentActivityCard,
+.Mentor-DB-TopInternCard,
+.Mentor-DB-ScheduleCard {
   background: var(--mdb-card-bg);
   border-radius: var(--mdb-radius);
   box-shadow: var(--mdb-shadow);
@@ -333,27 +342,27 @@
 }
 
 
-.PerformanceCardHeader,
-.TopInternHeader,
-.ScheduleHeader {
+.Mentor-DB-PerformanceCardHeader,
+.Mentor-DB-TopInternHeader,
+.Mentor-DB-ScheduleHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
 
-.PerformanceCardHeader h3,
-.InternStatusCard > h3,
-.DeadlineCard > h3,
-.RecentActivityCard > h3,
-.TopInternHeader h3,
-.ScheduleHeader h3 {
+.Mentor-DB-PerformanceCardHeader h3,
+.Mentor-DB-InternStatusCard > h3,
+.Mentor-DB-DeadlineCard > h3,
+.Mentor-DB-RecentActivityCard > h3,
+.Mentor-DB-TopInternHeader h3,
+.Mentor-DB-ScheduleHeader h3 {
   font-size: 1.02rem;
   font-weight: 700;
   color: var(--mdb-text);
 }
 
-.SelectedMonth {
+.Mentor-DB-SelectedMonth {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -367,22 +376,22 @@
   cursor: pointer;
 }
 
-.TopInternHeader a,
-.ScheduleHeader a {
+.Mentor-DB-TopInternHeader a,
+.Mentor-DB-ScheduleHeader a {
   font-size: 0.85rem;
   font-weight: 600;
   color: #2563eb;
   text-decoration: none;
 }
 
-.TopInternHeader a:hover,
-.ScheduleHeader a:hover {
+.Mentor-DB-TopInternHeader a:hover,
+.Mentor-DB-ScheduleHeader a:hover {
   text-decoration: underline;
 }
 
-.ViewAllDeadlines,
-.ActivityFooter,
-.ScheduleFooter {
+.Mentor-DB-ViewAllDeadlines,
+.Mentor-DB-ActivityFooter,
+.Mentor-DB-ScheduleFooter {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -395,21 +404,21 @@
 }
 
 
-.ViewAllDeadlines:hover,
-.ActivityFooter:hover,
-.ScheduleFooter:hover {
+.Mentor-DB-ViewAllDeadlines:hover,
+.Mentor-DB-ActivityFooter:hover,
+.Mentor-DB-ScheduleFooter:hover {
   text-decoration: underline;
 }
 
 
-.MentorAnalyticsSection {
+.Mentor-DB-MentorAnalyticsSection {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1.1fr;
   gap: 20px;
   align-items: stretch;
 }
 
-.ChartPoint {
+.Mentor-DB-ChartPoint {
   display: flex;
   gap: 24px;
   margin-top: 10px;
@@ -417,36 +426,36 @@
   color: var(--mdb-text-muted);
 }
 
-.ChartPoint span {
+.Mentor-DB-ChartPoint span {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.PointDot {
+.Mentor-DB-PointDot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.PointDot.Blue {
+.Mentor-DB-PointDot.Blue {
   background: #4338ca;
 }
 
-.PointDot.Green {
+.Mentor-DB-PointDot.Green {
   background: #22c55e;
 }
 
 /* Donut */
-.DonutChartContainer {
+.Mentor-DB-DonutChartContainer {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.DonutChartCenter {
+.Mentor-DB-DonutChartCenter {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -457,24 +466,24 @@
   line-height: 1.1;
 }
 
-.DonutChartCenter h2 {
+.Mentor-DB-DonutChartCenter h2 {
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--mdb-text);
 }
 
-.DonutChartCenter p {
+.Mentor-DB-DonutChartCenter p {
   font-size: 0.78rem;
   color: var(--mdb-text-muted);
 }
 
-.InternStatusContent {
+.Mentor-DB-InternStatusContent {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.StatusPoint {
+.Mentor-DB-StatusPoint {
   list-style: none;
   margin-top: 12px;
   display: flex;
@@ -483,19 +492,19 @@
   width: 100%;
 }
 
-.StatusPoint > div {
+.Mentor-DB-StatusPoint > div {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 0.85rem;
 }
 
-.StatusPoint p {
+.Mentor-DB-StatusPoint p {
   flex: 1;
   color: var(--mdb-text);
 }
 
-.StatusDot {
+.Mentor-DB-StatusDot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -503,31 +512,31 @@
   flex-shrink: 0;
 }
 
-.StatusDot.Green {
+.Mentor-DB-StatusDot.Green {
   background: #22c55e;
 }
 
-.StatusDot.Yellow {
+.Mentor-DB-StatusDot.Yellow {
   background: #eab308;
 }
 
-.StatusDot.Red {
+.Mentor-DB-StatusDot.Red {
   background: #ef4444;
 }
 
-.DeadlineItem {
+.Mentor-DB-DeadlineItem {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 14px 0;
 }
 
-.DeadlineItem:last-child {
+.Mentor-DB-DeadlineItem:last-child {
   border-bottom: 1px solid var(--mdb-border);
 }
 
 
-.DeadlineDateBox {
+.Mentor-DB-DeadlineDateBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -540,42 +549,42 @@
   line-height: 1.1;
 }
 
-.DeadlineDateBox span {
+.Mentor-DB-DeadlineDateBox span {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
 
-.DeadlineDateBox h4 {
+.Mentor-DB-DeadlineDateBox h4 {
   font-size: 1.05rem;
   font-weight: 800;
 }
 
-.DeadlineContent {
+.Mentor-DB-DeadlineContent {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
-.DeadlineHeader {
+.Mentor-DB-DeadlineHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
-.DeadlineHeader h4 {
+.Mentor-DB-DeadlineHeader h4 {
   font-size: 0.9rem;
   color: var(--mdb-text);
 }
 
-.DeadlineContent > p {
+.Mentor-DB-DeadlineContent > p {
   font-size: 0.78rem;
   color: var(--mdb-text-muted);
 }
 
-.DeadlineStatus {
+.Mentor-DB-DeadlineStatus {
   font-size: 0.72rem;
   font-weight: 700;
   padding: 5px 10px;
@@ -583,23 +592,23 @@
   white-space: nowrap;
 }
 
-.DeadlineStatus.Red {
+.Mentor-DB-DeadlineStatus.Red {
   background: #fee2e2;
   color: #dc2626;
 }
 
-.DeadlineStatus.Yellow {
+.Mentor-DB-DeadlineStatus.Yellow {
   background: #fef3c7;
   color: #b45309;
 }
 
-.DeadlineStatus.IceBlue {
+.Mentor-DB-DeadlineStatus.IceBlue {
   background: #dbeafe;
   color: #1d4ed8;
 }
 
 
-.MentorBottomSection {
+.Mentor-DB-MentorBottomSection {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
   gap: 20px;
@@ -607,7 +616,7 @@
 }
 
 
-.ActivityItem {
+.Mentor-DB-ActivityItem {
   display: flex;
   gap: 14px;
   align-items: flex-start;
@@ -616,13 +625,13 @@
   border-bottom: 1px solid var(--mdb-border);
 }
 
-.ActivityItem:last-of-type {
+.Mentor-DB-ActivityItem:last-of-type {
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
-.ActivityIconContainer {
+.Mentor-DB-ActivityIconContainer {
   width: 36px;
   height: 36px;
   border-radius: 9px;
@@ -632,32 +641,32 @@
   flex-shrink: 0;
 }
 
-.ActivityIconContainer img {
+.Mentor-DB-ActivityIconContainer img {
   object-fit: contain;
 }
 
 
-.ActivityIconContainerGreen {
+.Mentor-DB-ActivityIconContainerGreen {
   background: #dcfce7;
   color: #16a34a;
 }
 
-.ActivityIconContainerBlue {
+.Mentor-DB-ActivityIconContainerBlue {
   background: #cffafe;
   color: #0891b2;
 }
 
-.ActivityIconContainerYellow {
+.Mentor-DB-ActivityIconContainerYellow {
   background: #fef9c3;
   color: #ca8a04;
 }
 
-.ActivityIconContainerPink {
+.Mentor-DB-ActivityIconContainerPink {
   background: #fce7f3;
   color: #db2777;
 }
 
-.ActivityContent h4 {
+.Mentor-DB-ActivityContent h4 {
   font-size: 0.87rem;
   color: var(--mdb-text);
   margin-bottom: 2px;
@@ -665,24 +674,24 @@
   font-weight: 500;
 }
 
-.ActivityContent p {
+.Mentor-DB-ActivityContent p {
   font-size: 0.76rem;
   color: var(--mdb-text-muted);
 }
 
 /* Top performing interns */
-.TopInternItem {
+.Mentor-DB-TopInternItem {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 18px;
 }
 
-.TopInternItem:last-of-type {
+.Mentor-DB-TopInternItem:last-of-type {
   margin-bottom: 0;
 }
 
-.TopInternImage {
+.Mentor-DB-TopInternImage {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -693,11 +702,11 @@
 }
 
 
-.ProgressSection {
+.Mentor-DB-ProgressSection {
   flex: 1;
 }
 
-.ProgressBar {
+.Mentor-DB-ProgressBar {
   width: 100%;
   height: 8px;
   border-radius: 6px;
@@ -705,13 +714,13 @@
   overflow: hidden;
 }
 
-.ProgressFill {
+.Mentor-DB-ProgressFill {
   height: 100%;
   border-radius: 6px;
   background: linear-gradient(90deg, #22c55e, #16a34a);
 }
 
-.TopInternItem h4 {
+.Mentor-DB-TopInternItem h4 {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--mdb-text);
@@ -720,7 +729,7 @@
 }
 
 /* Schedule */
-.ScheduleItem {
+.Mentor-DB-ScheduleItem {
   display: flex;
   gap: 14px;
   align-items: flex-start;
@@ -729,23 +738,23 @@
   margin-bottom: 14px;
 }
 
-.ScheduleItem:last-of-type {
+.Mentor-DB-ScheduleItem:last-of-type {
   margin-bottom: 0;
 }
 
-.ScheduleItem.SchedulePurple {
+.Mentor-DB-ScheduleItem.SchedulePurple {
   background: #f1edff;
 }
 
-.ScheduleItem.ScheduleOrange {
+.Mentor-DB-ScheduleItem.ScheduleOrange {
   background: #fff4e6;
 }
 
-.ScheduleItem.ScheduleTeal {
+.Mentor-DB-ScheduleItem.ScheduleTeal {
   background: #e6fbf7;
 }
 
-.ScheduleTime {
+.Mentor-DB-ScheduleTime {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--mdb-text);
@@ -753,18 +762,18 @@
   min-width: 66px;
 }
 
-.ScheduleContent {
+.Mentor-DB-ScheduleContent {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.ScheduleContent h4 {
+.Mentor-DB-ScheduleContent h4 {
   font-size: 0.86rem;
   color: var(--mdb-text);
 }
 
-.ScheduleContent p {
+.Mentor-DB-ScheduleContent p {
   font-size: 0.76rem;
   color: var(--mdb-text-muted);
   display: flex;
@@ -772,7 +781,7 @@
   gap: 6px;
 }
 
-.ScheduleDot {
+.Mentor-DB-ScheduleDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -786,11 +795,11 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .MentorAnalyticsSection {
+  .Mentor-DB-MentorAnalyticsSection {
     grid-template-columns: 1fr;
   }
 
-  .MentorBottomSection {
+  .Mentor-DB-MentorBottomSection {
     grid-template-columns: 1fr;
   }
 }

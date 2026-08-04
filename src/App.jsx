@@ -9,7 +9,7 @@ import VerifyCode from "./Components-Auth/VerifyCode";
 import ResetPassword from "./Components-Auth/ResetPassword";
 import ResetSuccess from "./Components-Auth/ResetSuccess";
 import TwoStepVerification from "./Components-Auth/TwoStepVerification";
-import MentorDashboard from "./Components-MentorDashboard/MentorDashboard";
+import { MentorDashboard } from "./Components-MentorDashboard/MentorDashboard";
 import "./App.css";
 
 export default function App() {
