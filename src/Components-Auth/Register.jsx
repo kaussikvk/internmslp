@@ -4,35 +4,10 @@ import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 import "./Register.css";
 
-function TrackingIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function ShieldCheckIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path
-        d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.5 12l2.5 2.5L15.5 9"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+import smartTrackingIcon from "../assets/Auth/Smart tracking.png";
 
 import mentorOfficeImg from "../assets/Auth/Mentor-Office.png";
+
 
 import internAvatarImg from "../assets/Auth/Blueman.png";
 import handshakeIcon from "../assets/Auth/Handshake.png";
@@ -47,6 +22,8 @@ import sparkleIcon from "../assets/Auth/sparkle1.png";
 import shieldIcon from "../assets/Auth/shield.png";
 import verifiedCircleIcon from "../assets/Auth/Verified circle.png";
 import verifiedShieldIcon from "../assets/Auth/Verified shield.png";
+
+import ADMIN_ROLE_CONFIG from "./AdminRegister";
 
 const HR_BG = "rgba(138, 76, 252, 1)";
 
@@ -128,7 +105,9 @@ const ROLE_CONFIG = {
       "Join thousands of ambitious students securing world-class internships at leading tech companies and creative agencies.",
     leftBullets: [
       { iconImg: verifiedCircleIcon, iconOriginalColor: true, noBg: true, title: "Verified Employers", text: "Connect with pre-vetted top-tier companies worldwide." },
-      { icon: TrackingIcon, title: "Smart Tracking", text: "Manage all your applications in one organized dashboard." },
+      { iconImg: smartTrackingIcon, noBg: true, title: "Smart Tracking", text: "Manage all your applications in one organized dashboard." },
+
+
     ],
     formTitle: "Intern Registration",
     formSubtitle: "Fill in the details below to create your professional account.",
@@ -193,9 +172,11 @@ const ROLE_CONFIG = {
       { name: "regNumber", label: "Registration Number", type: "text", placeholder: "Business ID or Tax ID", fullWidth: true },
     ],
   },
+  admin: ADMIN_ROLE_CONFIG,
 };
 
-const ROLE_ORDER = ["hr", "mentor", "intern", "company"];
+const ROLE_ORDER = ["hr", "mentor", "intern", "company", "admin"];
+
 
 function BulletIconRenderer({ bullet }) {
   if (bullet.iconImg) {
@@ -234,10 +215,13 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
 
   const config = ROLE_CONFIG[role];
   const isIntern = role === "intern";
   const isHrOrCompany = role === "hr" || role === "company";
+  const isAdmin = role === "admin";
+
 
   const handleRoleChange = (newRole) => {
     setRole(newRole);
@@ -245,32 +229,83 @@ export default function Register() {
     setPassword("");
     setConfirmPassword("");
     setError("");
+    setFieldErrors({});
   };
 
   const handleFieldChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateField = (field, value) => {
+    const isOptional = field.label.includes("Optional");
+    const trimmed = typeof value === "string" ? value.trim() : value;
+
+    if (!isOptional && (!trimmed || trimmed === "")) {
+      return `${field.label.replace(" (Optional)", "")} is required.`;
+    }
+
+    if (!isOptional && field.type === "email" && !EMAIL_REGEX.test(trimmed)) {
+      return "Please enter a valid email address.";
+    }
+
+    if (!isOptional && field.type === "tel" && trimmed.replace(/\D/g, "").length < 7) {
+      return "Please enter a valid phone number.";
+    }
+
+    if (!isOptional && field.type === "number" && trimmed !== "" && isNaN(Number(trimmed))) {
+      return "Please enter a valid number.";
+    }
+
+    return "";
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
+    const newFieldErrors = {};
+
+    config.fields.forEach((field) => {
+      const msg = validateField(field, formData[field.name]);
+      if (msg) {
+        newFieldErrors[field.name] = msg;
+      }
+    });
+
+    if (!password) {
+      newFieldErrors.password = "Password is required.";
+    } else if (password.length < 8) {
+      newFieldErrors.password = "Password must be at least 8 characters.";
     }
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters.");
+
+    if (!confirmPassword) {
+      newFieldErrors.confirmPassword = "Please confirm your password.";
+    } else if (password && confirmPassword !== password) {
+      newFieldErrors.confirmPassword = "Passwords do not match.";
+    }
+
+    setFieldErrors(newFieldErrors);
+
+    if (Object.keys(newFieldErrors).length > 0) {
+      setError("");
       return;
     }
 
     setError("");
     console.log("Registering", role, { ...formData, password });
 
-    navigate(isHrOrCompany ? "/company-hr-login" : "/login");
+    navigate(isAdmin ? "/login" : isHrOrCompany ? "/company-hr-login" : "/login");
   };
 
+
+
   return (
-    <div className="ims-login-page ims-register-page">
+    <div className={`ims-login-page ims-register-page${isAdmin ? " ims-register-page--admin" : ""}`}>
+
       {/* LEFT */}
       <div className={`ims-login-left ${isIntern || role === "mentor" ? "ims-login-left--top" : ""}`}>
         <div className="ims-auth-logo">
@@ -280,7 +315,7 @@ export default function Register() {
           <h1>{config.leftTitle}</h1>
           <p>{config.leftText}</p>
 
-          {config.leftBullets && (
+          {config.leftBullets && !isAdmin && (
             <ul className={`ims-register-bullets ${isIntern ? "ims-register-bullets--glass" : ""}`}>
               {config.leftBullets.map((b) => (
                 <li key={b.title}>
@@ -295,6 +330,7 @@ export default function Register() {
           )}
 
           {config.illustration && (
+
             <div className="ims-register-illustration">
               <div className="ims-register-illustration__header">
                 <span
@@ -333,10 +369,25 @@ export default function Register() {
           )}
 
           {config.leftImage && config.leftImageGlass && (
-            <div className="ims-register-handshake">
+            <div className={`ims-register-handshake${isAdmin ? " ims-register-handshake--admin" : ""}`}>
               <img src={config.leftImage} alt="" />
             </div>
           )}
+
+          {config.leftBullets && isAdmin && (
+            <ul className="ims-register-bullets">
+              {config.leftBullets.map((b) => (
+                <li key={b.title}>
+                  <BulletIconRenderer bullet={b} />
+                  <div>
+                    <strong>{b.title}</strong>
+                    <p>{b.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+
 
           {config.leftImage && !config.leftImageGlass && (
             <div className="ims-register-left-image">
@@ -408,9 +459,9 @@ export default function Register() {
 
                   {field.type === "select" && (
                     <select
+                      className={fieldErrors[field.name] ? "input-error" : ""}
                       value={formData[field.name] || ""}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                      required
                     >
                       <option value="" disabled>
                         Select {field.label.toLowerCase()}
@@ -422,15 +473,21 @@ export default function Register() {
                       ))}
                     </select>
                   )}
+                  {fieldErrors[field.name] && field.type === "select" && (
+                    <span className="error-msg">{fieldErrors[field.name]}</span>
+                  )}
 
                   {field.type === "textarea" && (
                     <textarea
+                      className={fieldErrors[field.name] ? "input-error" : ""}
                       rows={4}
                       placeholder={field.placeholder}
                       value={formData[field.name] || ""}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                      required
                     />
+                  )}
+                  {fieldErrors[field.name] && field.type === "textarea" && (
+                    <span className="error-msg">{fieldErrors[field.name]}</span>
                   )}
 
                   {field.type === "file" && (
@@ -445,26 +502,35 @@ export default function Register() {
 
                   {["text", "email", "tel", "date", "number"].includes(field.type) && !field.hasPrefix && (
                     <input
+                      className={fieldErrors[field.name] ? "input-error" : ""}
                       type={field.type}
                       placeholder={field.placeholder}
                       value={formData[field.name] || ""}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                      required={field.label.includes("Optional") ? false : true}
                     />
                   )}
+                  {fieldErrors[field.name] &&
+                    ["text", "email", "tel", "date", "number"].includes(field.type) &&
+                    !field.hasPrefix && (
+                      <span className="error-msg">{fieldErrors[field.name]}</span>
+                    )}
 
                   {["text", "email", "tel", "date", "number"].includes(field.type) && field.hasPrefix && (
-                    <div className="ims-phone-prefix-row">
+                    <div className={`ims-phone-prefix-row${fieldErrors[field.name] ? " input-error" : ""}`}>
                       <span className="ims-phone-prefix-row__prefix">{field.hasPrefix}</span>
                       <input
                         type={field.type}
                         placeholder={field.placeholder}
                         value={formData[field.name] || ""}
                         onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                        required={field.label.includes("Optional") ? false : true}
                       />
                     </div>
                   )}
+                  {fieldErrors[field.name] &&
+                    ["text", "email", "tel", "date", "number"].includes(field.type) &&
+                    field.hasPrefix && (
+                      <span className="error-msg">{fieldErrors[field.name]}</span>
+                    )}
                 </label>
               ))}
             </div>
@@ -473,24 +539,39 @@ export default function Register() {
               <label>
                 Password
                 <input
+                  className={fieldErrors.password ? "input-error" : ""}
                   type="password"
                   placeholder="Create a strong password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (fieldErrors.password) {
+                      setFieldErrors((prev) => ({ ...prev, password: "" }));
+                    }
+                  }}
                 />
+                {fieldErrors.password && <span className="error-msg">{fieldErrors.password}</span>}
               </label>
               <label>
                 Confirm Password
                 <input
+                  className={fieldErrors.confirmPassword ? "input-error" : ""}
                   type="password"
                   placeholder="Confirm your password"
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
+                  onChange={(e) => {
+                    setConfirmPassword(e.target.value);
+                    if (fieldErrors.confirmPassword) {
+                      setFieldErrors((prev) => ({ ...prev, confirmPassword: "" }));
+                    }
+                  }}
                 />
+                {fieldErrors.confirmPassword && (
+                  <span className="error-msg">{fieldErrors.confirmPassword}</span>
+                )}
               </label>
             </div>
+
 
             <label className="ims-login-checkbox">
               <input type="checkbox" required />

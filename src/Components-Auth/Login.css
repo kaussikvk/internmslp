@@ -344,6 +344,38 @@
   color: var(--ims-primary);
 }
 
+.ims-auth-shield-inner--glass {
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ims-auth-shield-inner--glass img {
+  width: 40px;
+  height: 60px;
+}
+
+
+.ims-auth-shield-box--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ims-auth-shield-box--left h1,
+.ims-auth-shield-box--left p {
+  text-align: left;
+}
+
+
+
 .ims-otp-row {
   display: flex;
   gap: 12px;
@@ -697,11 +729,65 @@
   justify-content: center;
   background: var(--ims-white) !important;
   border-radius: 0 !important;
+  padding: 40px !important;
 }
 
 .ims-verify-left::before {
   display: none;
 }
+
+.ims-security-card {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 1 / 1.05;
+  background: linear-gradient(160deg, #3b5bdb 0%, #2540b8 45%, #0c1f5c 100%);
+  color: var(--ims-white);
+  border-radius: 32px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(12, 31, 92, 0.25);
+}
+
+.ims-security-card__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.ims-security-card__title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.15;
+}
+
+.ims-security-card__text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 40px;
+  max-width: 480px;
+}
+
+.ims-security-card__trust {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: auto 0 0;
+}
+
 
 .ims-reset-left-inner {
   display: flex;
@@ -726,6 +812,18 @@
   justify-content: center;
   box-shadow: 0 20px 40px rgba(12, 31, 92, 0.25);
 }
+
+.ims-auth-shield-box--left {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.ims-auth-shield-box--left h1,
+.ims-auth-shield-box--left p {
+  text-align: left !important;
+}
+
 
 
 

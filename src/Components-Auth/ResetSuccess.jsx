@@ -3,24 +3,9 @@ import { Link } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 
-function CheckCircleIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M7.5 12.5l3 3 6-6"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-
-
+import checkCircleIcon from "../assets/Auth/checkcircle.png";
 import illustrationSuccess from "../assets/Auth/illustration-success.png";
+
 
 export default function ResetSuccess() {
   return (
@@ -30,9 +15,10 @@ export default function ResetSuccess() {
         <div className="ims-login-left__inner">
           <div className="ims-auth-shield-lg">
             <div className="ims-auth-shield-inner">
-              <CheckCircleIcon />
+              <img src={checkCircleIcon} alt="" width={30} height={30} />
             </div>
           </div>
+
 
           <h1>Password reset successfully</h1>
           <p>

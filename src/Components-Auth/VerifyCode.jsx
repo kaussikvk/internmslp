@@ -3,27 +3,20 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../Components-LandingPage/LandingPage.css";
 import "./Login.css";
 
+import shieldCheckIcon from "../assets/Auth/sheildcheck.png";
+import verifyCodeShieldIcon from "../assets/Auth/VerifyCodeSheild1.png";
+
 function ShieldCheckIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path
-        d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.5 12l2.5 2.5L15.5 9"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
+  return <img src={shieldCheckIcon} alt="" {...props} />;
 }
 
+function VerifyCodeShieldIcon(props) {
+  return <img src={verifyCodeShieldIcon} alt="" {...props} />;
+}
+
+
 function LockIcon(props) {
+
   return (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <rect x="4.5" y="10.5" width="15" height="10" rx="2" stroke="currentColor" strokeWidth="1.6" />
@@ -137,27 +130,28 @@ export default function VerifyCode() {
       {/* LEFT */}
       <div className={`ims-login-left ${flow === "2fa" ? "ims-verify-left" : ""}`}>
         {flow === "2fa" ? (
-          <div className="ims-auth-shield-box">
-            <div className="ims-auth-shield-lg">
-              <div className="ims-auth-shield-inner">
-                <ShieldCheckIcon />
-              </div>
+          <div className="ims-security-card">
+            <div className="ims-security-card__icon">
+              <VerifyCodeShieldIcon width={40} height={40} />
             </div>
 
-            <h1>{config.leftTitle}</h1>
-            <p>{config.leftText}</p>
+            <h1 className="ims-security-card__title">{config.leftTitle}</h1>
+            <p className="ims-security-card__text">{config.leftText}</p>
 
             {config.trustLine && (
-              <p className="ims-verify-trustline">{config.trustLine}</p>
+              <p className="ims-security-card__trust">{config.trustLine}</p>
             )}
           </div>
+
         ) : (
           <div className="ims-login-left__inner ims-reset-left-inner">
             <div className="ims-auth-shield-lg">
-              <div className="ims-auth-shield-inner">
-                <ShieldCheckIcon />
+              <div className="ims-auth-shield-inner ims-auth-shield-inner--glass">
+                <VerifyCodeShieldIcon width={30} height={30} />
               </div>
             </div>
+
+
 
             <h1>{config.leftTitle}</h1>
             <p>{config.leftText}</p>
