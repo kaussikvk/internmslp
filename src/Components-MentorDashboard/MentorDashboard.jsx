@@ -15,11 +15,7 @@ import {
 import "./MentorDashboard.css";
 
 import homeDashboard from "../assets/DashBoard/Home.png";
-import clockDashboard from "../assets/DashBoard/Clock.png";
-import statsDashboard from "../assets/DashBoard/Stats.png";
 import resourceDashboard from "../assets/DashBoard/Resourse.png";
-import speakerDashboard from "../assets/DashBoard/speaker.png";
-import calendarDashboard from "../assets/DashBoard/Calender.png";
 import settingsDashboard from "../assets/DashBoard/settings.png";
 
 import searchDashboard from "../assets/DashBoard/search.png";
@@ -36,6 +32,15 @@ import starDashboard from "../assets/DashBoard/star.png";
 import messageDashboard from "../assets/DashBoard/Message2.png";
 import personSimple from "../assets/DashBoard/person-simple.png";
 import notepadDashboard from "../assets/DashBoard/notepad.png";
+
+import myProfileIcon from "../assets/DashBoard/MyProfileIcon.png";
+import internIconDashboard from "../assets/DashBoard/InternIcon-Dashboard.png";
+import taskApprovalIcon from "../assets/DashBoard/Task&Approval.png";
+import scheduleIcon from "../assets/DashBoard/ScheduleIcon.png";
+import statastics3Icon from "../assets/DashBoard/Statastics-3.png";
+import communicationIcon from "../assets/DashBoard/CommunicationIcon.png";
+import projectsMentorDashboardIcon from "../assets/DashBoard/Projects-Mentordashboard.png";
+
 
 import hamburgerDashboard from "../assets/DashBoard/hamburger.png";
 import downArrowDashboard from "../assets/DashBoard/down-arrow.png";
@@ -58,41 +63,56 @@ export const MentorDashboard = () => {
       alt: "Home",
     },
     {
-      label: "My Interns",
-      icon: personOutlineFilled,
+      label: "My Profile",
+      icon: myProfileIcon,
       path: "#",
-      alt: "intern-user",
+      alt: "my-profile",
     },
     {
-      label: "Tasks & Reviews",
-      icon: notepadDashboard,
+      label: "Interns",
+      icon: internIconDashboard,
       path: "#",
-      alt: "task",
+      alt: "interns",
     },
-    { label: "Attendance", icon: clockDashboard, path: "#", alt: "clock" },
     {
-      label: "Performance",
-      icon: statsDashboard,
+      label: "Task & Approvals",
+      icon: taskApprovalIcon,
       path: "#",
-      alt: "performicon",
+      alt: "task-approvals",
     },
-    { label: "Messages", icon: messageDashboard, path: "#", alt: "message" },
+    {
+      label: "Schedule",
+      icon: scheduleIcon,
+      path: "#",
+      alt: "schedule",
+    },
+    {
+      label: "Reports & Analytics",
+      icon: statastics3Icon,
+      path: "#",
+      alt: "reports-analytics",
+    },
+    {
+      label: "Projects",
+      icon: projectsMentorDashboardIcon,
+      path: "#",
+      alt: "projects",
+    },
+    {
+      label: "Communication",
+      icon: communicationIcon,
+      path: "#",
+      alt: "communication",
+    },
     {
       label: "Resources",
       icon: resourceDashboard,
       path: "#",
       alt: "resourceicon",
     },
-    {
-      label: "Announcements",
-      icon: speakerDashboard,
-      path: "#",
-      alt: "speaker",
-    },
-    { label: "Reports", icon: notepadDashboard, path: "#", alt: "report" },
-    { label: "Calendar", icon: calendarDashboard, path: "#", alt: "calendar" },
     { label: "Settings", icon: settingsDashboard, path: "#", alt: "settings" },
   ];
+
 
   const STAT_CARDS = [
     {
