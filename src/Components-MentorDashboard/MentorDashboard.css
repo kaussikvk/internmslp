@@ -84,6 +84,11 @@
   transition: background 0.15s ease, color 0.15s ease;
 }
 
+.MentorDashboardNavItemFirst {
+  margin-bottom: 18px;
+}
+
+
 .MentorDashboardNavItem:hover {
   background: rgba(255, 255, 255, 0.3);
   color: #fff;

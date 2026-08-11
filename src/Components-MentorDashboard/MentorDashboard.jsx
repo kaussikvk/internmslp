@@ -433,12 +433,17 @@ export const MentorDashboard = () => {
         </div>
 
         <div className="MentorDashboardSidebarNav">
-          {NAV_ITEMS.map((item) => (
-            <div key={item.label} onClick={() => setActiveMenu(item.label)}>
+          {NAV_ITEMS.map((item, index) => (
+            <div
+              key={item.label}
+              className={index === 0 ? "MentorDashboardNavItemFirst" : ""}
+              onClick={() => setActiveMenu(item.label)}
+            >
               <NavItem {...item} isActive={activeMenu === item.label} />
             </div>
           ))}
         </div>
+
       </div>
 
       <div className="MentorDashboardMain">
