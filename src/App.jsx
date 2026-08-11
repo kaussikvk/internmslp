@@ -10,7 +10,9 @@ import ResetPassword from "./Components-Auth/ResetPassword";
 import ResetSuccess from "./Components-Auth/ResetSuccess";
 import TwoStepVerification from "./Components-Auth/TwoStepVerification";
 import { MentorDashboard } from "./Components-MentorDashboard/MentorDashboard";
+import { MentorDashboardHome } from "./Components-MentorDashboard/MentorDashboardHome";
 import "./App.css";
+
 
 export default function App() {
   return (
@@ -30,7 +32,10 @@ export default function App() {
         
         <Route path="/two-step-verification" element={<TwoStepVerification />} />
 
-        <Route path="/mentor-dashboard" element={<MentorDashboard />} />
+        <Route path="/mentor-dashboard" element={<MentorDashboard />}>
+          <Route index element={<MentorDashboardHome />} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );
