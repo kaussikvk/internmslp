@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
 import "./MentorDashboard.css";
 
 import homeDashboard from "../assets/DashBoard/Home.png";
@@ -21,72 +20,65 @@ import projectsMentorDashboardIcon from "../assets/DashBoard/Projects-Mentordash
 import hamburgerDashboard from "../assets/DashBoard/hamburger.png";
 import downArrowDashboard from "../assets/DashBoard/down-arrow.png";
 
+import { MentorDashboardHome } from "./MentorDashboardHome";
+
 export const MentorDashboard = () => {
+  const [activeMenu, setActiveMenu] = useState("Dashboard");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const location = useLocation();
 
   const NAV_ITEMS = [
     {
       label: "Dashboard",
       icon: homeDashboard,
-      path: "/mentor-dashboard",
       alt: "Home",
     },
     {
       label: "My Profile",
       icon: myProfileIcon,
-      path: "#",
       alt: "my-profile",
     },
     {
       label: "Interns",
       icon: internIconDashboard,
-      path: "#",
       alt: "interns",
     },
     {
       label: "Task & Approvals",
       icon: taskApprovalIcon,
-      path: "#",
       alt: "task-approvals",
     },
     {
       label: "Schedule",
       icon: scheduleIcon,
-      path: "#",
       alt: "schedule",
     },
     {
       label: "Reports & Analytics",
       icon: statastics3Icon,
-      path: "#",
       alt: "reports-analytics",
     },
     {
       label: "Projects",
       icon: projectsMentorDashboardIcon,
-      path: "#",
       alt: "projects",
     },
     {
       label: "Communication",
       icon: communicationIcon,
-      path: "#",
       alt: "communication",
     },
     {
       label: "Resources",
       icon: resourceDashboard,
-      path: "#",
       alt: "resourceicon",
     },
-    { label: "Settings", icon: settingsDashboard, path: "#", alt: "settings" },
+    { label: "Settings", icon: settingsDashboard, alt: "settings" },
   ];
 
-  function NavItem({ label, icon, alt, path, isActive }) {
+  function NavItem({ label, icon, alt, isActive, onClick }) {
     return (
-      <Link
-        to={path}
+      <div
+        onClick={onClick}
         className={
           isActive ? "MentorDashboardNavItem active" : "MentorDashboardNavItem"
         }
@@ -98,8 +90,9 @@ export const MentorDashboard = () => {
           width={20}
           height={20}
         />
+
         <h4>{label}</h4>
-      </Link>
+      </div>
     );
   }
 
@@ -118,16 +111,13 @@ export const MentorDashboard = () => {
         </div>
 
         <div className="MentorDashboardSidebarNav">
-          {NAV_ITEMS.map((item, index) => (
-            <div
+          {NAV_ITEMS.map((item) => (
+            <NavItem
               key={item.label}
-              className={index === 0 ? "MentorDashboardNavItemFirst" : ""}
-            >
-              <NavItem
-                {...item}
-                isActive={location.pathname === item.path}
-              />
-            </div>
+              {...item}
+              isActive={activeMenu === item.label}
+              onClick={() => setActiveMenu(item.label)}
+            />
           ))}
         </div>
       </div>
@@ -202,10 +192,29 @@ export const MentorDashboard = () => {
           </div>
         </div>
 
-        <Outlet />
+        <div className="MentorDashboardContent">
+          {activeMenu === "Dashboard" && <MentorDashboardHome />}
+
+          {activeMenu === "My Profile" && <h2>My Profile</h2>}
+
+          {activeMenu === "Interns" && <h2>Interns</h2>}
+
+          {activeMenu === "Task & Approvals" && <h2>Task & Approvals</h2>}
+
+          {activeMenu === "Schedule" && <h2>Schedule</h2>}
+
+          {activeMenu === "Reports & Analytics" && <h2>Reports & Analytics</h2>}
+
+          {activeMenu === "Projects" && <h2>Projects</h2>}
+
+          {activeMenu === "Communication" && <h2>Communication</h2>}
+
+          {activeMenu === "Resources" && <h2>Resources</h2>}
+
+          {activeMenu === "Settings" && <h2>Settings</h2>}
+        </div>
       </div>
     </div>
   );
 };
 
-export default MentorDashboard;

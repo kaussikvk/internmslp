@@ -315,12 +315,13 @@ export const MentorDashboardHome = () => {
   }
 
   return (
-    <div className="MentorDashboardContent">
+    <>
       <div className="MentorDashboardStats">
-        {STAT_CARDS.map((card) => (
-          <StatCard key={card.key} {...card} />
+        {STAT_CARDS.map(({ key, ...card }) => (
+          <StatCard key={key} {...card} />
         ))}
       </div>
+
 
       <div className="MentorDashboardAnalyticsSection">
         <div className="MentorDashboardPerformanceCard">
@@ -521,8 +522,8 @@ export const MentorDashboardHome = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default MentorDashboardHome;
+
