@@ -1,283 +1,579 @@
 :root {
-  --mdb-sidebar-width: 260px;
-  --mdb-navy: #0b1a4d;
-  --mdb-navy-dark: #081340;
-  --mdb-navy-hover: #142868;
-  --mdb-header-bg: #dbeafe;
   --mdb-bg: #f4f6fb;
+  --mdb-card-bg: #ffffff;
+  --mdb-border: #e8ebf1;
   --mdb-text: #1a1f2b;
+  --mdb-text-muted: #7a8394;
+  --mdb-radius: 14px;
+  --mdb-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
 }
 
-.MentorDashboardContainer {
+.MentorDashboardStats {
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.MentorDashboardStatCard {
+  background: var(--mdb-card-bg);
+  border-radius: var(--mdb-radius);
+  box-shadow: var(--mdb-shadow);
+  padding: 20px;
   display: flex;
-  min-height: 100vh;
-  width: 100%;
-  background: var(--mdb-bg);
-  font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.MentorDashboardInternIconContainer,
+.MentorDashboardActiveInternIconContainer,
+.MentorDashboardTaskIconContainer,
+.MentorDashboardReviewIconContainer,
+.MentorDashboardStarIconContainer {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.MentorDashboardInternIconContainer img,
+.MentorDashboardActiveInternIconContainer img,
+.MentorDashboardTaskIconContainer img,
+.MentorDashboardReviewIconContainer img,
+.MentorDashboardStarIconContainer img {
+  object-fit: contain;
+}
+
+
+.MentorDashboardInternIconContainer {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.MentorDashboardActiveInternIconContainer {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.MentorDashboardTaskIconContainer {
+  background: #ffedd5;
+  color: #ea580c;
+}
+.MentorDashboardReviewIconContainer {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.MentorDashboardStarIconContainer {
+  background: #fce7f3;
+  color: #db2777;
+}
+
+.MentorDashboardStatContent h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
   color: var(--mdb-text);
 }
 
-.MentorDashboardContainer * {
-  box-sizing: border-box;
+.MentorDashboardStatContent p:first-of-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mdb-text);
+}
+
+.MentorDashboardStatContent p:last-of-type {
+  font-size: 0.76rem;
+  color: var(--mdb-text-muted);
 }
 
 
-.MentorDashboardSidebar {
-  width: var(--mdb-sidebar-width);
-  flex-shrink: 0;
-  background: var(--mdb-navy);
-  color: #fff;
+.MentorDashboardPerformanceCard,
+.MentorDashboardInternStatusCard,
+.MentorDashboardDeadlineCard,
+.MentorDashboardRecentActivityCard,
+.MentorDashboardTopInternCard,
+.MentorDashboardScheduleCard {
+  background: var(--mdb-card-bg);
+  border-radius: var(--mdb-radius);
+  box-shadow: var(--mdb-shadow);
+  padding: 22px 22px 18px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  transition: width 0.25s ease, min-width 0.25s ease;
+  height: 100%;
 }
 
-.MentorDashboardSidebar.MentorDashboardSidebarClosed {
-  width: 0;
-  min-width: 0;
-  padding: 0;
-}
 
-.MentorDashboardLogoSection {
-  padding: 28px 24px 20px;
-}
-
-.MentorDashboardLogoSection h2 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
-
-.MentorDashboardLogoSection p {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin-top: 4px;
-}
-
-.MentorDashboardSidebarNav {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 6px 14px 24px;
-  overflow-y: auto;
-}
-
-.MentorDashboardNavItem {
+.MentorDashboardPerformanceCardHeader,
+.MentorDashboardTopInternHeader,
+.MentorDashboardScheduleHeader {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
-  font-size: 0.94rem;
-  font-weight: 500;
-  transition: background 0.15s ease, color 0.15s ease;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
-.MentorDashboardNavItemFirst {
-  margin-bottom: 18px;
-}
-
-
-.MentorDashboardNavItem:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: #fff;
-}
-
-.MentorDashboardNavItem.active {
-  color: #fff;
+.MentorDashboardPerformanceCardHeader h3,
+.MentorDashboardInternStatusCard > h3,
+.MentorDashboardDeadlineCard > h3,
+.MentorDashboardRecentActivityCard > h3,
+.MentorDashboardTopInternHeader h3,
+.MentorDashboardScheduleHeader h3 {
+  font-size: 1.02rem;
   font-weight: 700;
+  color: var(--mdb-text);
 }
 
-
-
-.MentorDashboardNavIcon {
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-
-.MentorDashboardMain {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.MentorDashboardContent {
-  padding: 28px 32px 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.MentorDashboardContent * {
-  box-sizing: border-box;
-}
-
-
-.MentorDashboardNavbar {
-  background: var(--mdb-header-bg);
-  display: flex;
+.MentorDashboardSelectedMonth {
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-  padding: 16px 32px;
-  flex-wrap: wrap;
-}
-
-.MentorDashboardNavbarLeft {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.MentorDashboardHamburger {
-  color: var(--mdb-navy);
+  gap: 6px;
+  background: #f4f6fb;
+  border: 1px solid var(--mdb-border);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mdb-text);
   cursor: pointer;
-  flex-shrink: 0;
 }
 
-.MentorDashboardWelcomeSection {
+.MentorDashboardTopInternHeader a,
+.MentorDashboardScheduleHeader a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.MentorDashboardTopInternHeader a:hover,
+.MentorDashboardScheduleHeader a:hover {
+  text-decoration: underline;
+}
+
+.MentorDashboardViewAllDeadlines,
+.MentorDashboardActivityFooter,
+.MentorDashboardScheduleFooter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+
+.MentorDashboardViewAllDeadlines:hover,
+.MentorDashboardActivityFooter:hover,
+.MentorDashboardScheduleFooter:hover {
+  text-decoration: underline;
+}
+
+
+.MentorDashboardAnalyticsSection {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.MentorDashboardChartPoint {
   display: flex;
-  flex-direction: column;
+  gap: 24px;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--mdb-text-muted);
 }
 
-.MentorDashboardWelcomeSection h4 {
-  font-size: 1rem;
-  color: var(--mdb-navy);
-}
-
-.MentorDashboardWelcomeSection p {
-  font-size: 0.8rem;
-  color: #4b5670;
-}
-
-.MentorDashboardNavbarCenter {
-  flex: 1;
+.MentorDashboardChartPoint span {
   display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.MentorDashboardPointDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.MentorDashboardPointDot.Blue {
+  background: #4338ca;
+}
+
+.MentorDashboardPointDot.Green {
+  background: #22c55e;
+}
+
+/* Donut */
+.MentorDashboardDonutChartContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.MentorDashboardSearchBox {
-  flex: 1;
-  max-width: 420px;
-  min-width: 180px;
+.MentorDashboardDonutChartCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.MentorDashboardDonutChartCenter h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--mdb-text);
+}
+
+.MentorDashboardDonutChartCenter p {
+  font-size: 0.78rem;
+  color: var(--mdb-text-muted);
+}
+
+.MentorDashboardInternStatusContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MentorDashboardStatusPoint {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.MentorDashboardStatusPoint > div {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 10px 16px;
-  color: #9aa2b1;
+  font-size: 0.85rem;
 }
 
-.MentorDashboardSearchBox input {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
+.MentorDashboardStatusPoint p {
+  flex: 1;
+  color: var(--mdb-text);
+}
+
+.MentorDashboardStatusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.MentorDashboardStatusDot.Green {
+  background: #22c55e;
+}
+
+.MentorDashboardStatusDot.Yellow {
+  background: #eab308;
+}
+
+.MentorDashboardStatusDot.Red {
+  background: #ef4444;
+}
+
+.MentorDashboardDeadlineItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+}
+
+.MentorDashboardDeadlineItem:last-child {
+  border-bottom: 1px solid var(--mdb-border);
+}
+
+
+.MentorDashboardDeadlineDateBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 10px;
+  padding: 6px 10px;
+  min-width: 48px;
+  line-height: 1.1;
+}
+
+.MentorDashboardDeadlineDateBox span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.MentorDashboardDeadlineDateBox h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.MentorDashboardDeadlineContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.MentorDashboardDeadlineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.MentorDashboardDeadlineHeader h4 {
   font-size: 0.9rem;
   color: var(--mdb-text);
 }
 
-.MentorDashboardNavbarRight {
+.MentorDashboardDeadlineContent > p {
+  font-size: 0.78rem;
+  color: var(--mdb-text-muted);
+}
+
+.MentorDashboardDeadlineStatus {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.MentorDashboardDeadlineStatus.Red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.MentorDashboardDeadlineStatus.Yellow {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.MentorDashboardDeadlineStatus.IceBlue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+
+.MentorDashboardBottomSection {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+
+.MentorDashboardActivityItem {
   display: flex;
-  align-items: center;
   gap: 14px;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--mdb-border);
 }
 
-.MentorDashboardNotificationSection {
-  position: relative;
-  cursor: pointer;
-  color: var(--mdb-navy);
-  display: flex;
-  align-items: center;
+.MentorDashboardActivityItem:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
-.MentorDashboardNotificationBadge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ef4444;
-  border: 1.5px solid var(--mdb-header-bg);
-}
-
-.MentorDashboardProfileCircle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #ffffff;
+.MentorDashboardActivityIconContainer {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--mdb-navy);
-  overflow: hidden;
-  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.MentorDashboardProfileCircle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.MentorDashboardActivityIconContainer img {
+  object-fit: contain;
+}
+
+
+.MentorDashboardActivityIconContainerGreen {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.MentorDashboardActivityIconContainerBlue {
+  background: #cffafe;
+  color: #0891b2;
+}
+
+.MentorDashboardActivityIconContainerYellow {
+  background: #fef9c3;
+  color: #ca8a04;
+}
+
+.MentorDashboardActivityIconContainerPink {
+  background: #fce7f3;
+  color: #db2777;
+}
+
+.MentorDashboardActivityContent h4 {
+  font-size: 0.87rem;
+  color: var(--mdb-text);
+  margin-bottom: 2px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.MentorDashboardActivityContent p {
+  font-size: 0.76rem;
+  color: var(--mdb-text-muted);
+}
+
+/* Top performing interns */
+.MentorDashboardTopInternItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.MentorDashboardTopInternItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.MentorDashboardTopInternImage {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
+  flex-shrink: 0;
+  display: block;
+  object-fit: cover;
+  background: #eef1f6;
 }
 
 
-.MentorDashboardProfileDetails {
+.MentorDashboardProgressSection {
+  flex: 1;
+}
+
+.MentorDashboardProgressBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: #eef1f6;
+  overflow: hidden;
+}
+
+.MentorDashboardProgressFill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.MentorDashboardTopInternItem h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mdb-text);
+  min-width: 38px;
+  text-align: right;
+}
+
+/* Schedule */
+.MentorDashboardScheduleItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.MentorDashboardScheduleItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.MentorDashboardScheduleItem.SchedulePurple {
+  background: #f1edff;
+}
+
+.MentorDashboardScheduleItem.ScheduleOrange {
+  background: #fff4e6;
+}
+
+.MentorDashboardScheduleItem.ScheduleTeal {
+  background: #e6fbf7;
+}
+
+.MentorDashboardScheduleTime {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--mdb-text);
+  white-space: nowrap;
+  min-width: 66px;
+}
+
+.MentorDashboardScheduleContent {
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
-  cursor: pointer;
+  gap: 4px;
 }
 
-.MentorDashboardProfileDetails h4 {
-  font-size: 0.88rem;
-  color: var(--mdb-navy);
+.MentorDashboardScheduleContent h4 {
+  font-size: 0.86rem;
+  color: var(--mdb-text);
 }
 
-.MentorDashboardProfileDetails p {
-  font-size: 0.72rem;
-  color: #4b5670;
+.MentorDashboardScheduleContent p {
+  font-size: 0.76rem;
+  color: var(--mdb-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.MentorDashboardProfileArrow {
-  cursor: pointer;
+.MentorDashboardScheduleDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mdb-text-muted);
+  display: inline-block;
 }
 
+
+@media (max-width: 1200px) {
+  .MentorDashboardStats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .MentorDashboardAnalyticsSection {
+    grid-template-columns: 1fr;
+  }
+
+  .MentorDashboardBottomSection {
+    grid-template-columns: 1fr;
+  }
+}
 
 @media (max-width: 900px) {
-  .MentorDashboardContainer {
-    flex-direction: column;
-  }
-
-  .MentorDashboardSidebar {
-    width: 100%;
-    min-height: auto;
-    position: relative;
-  }
-
-  .MentorDashboardSidebarNav {
-    flex-direction: row;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .MentorDashboardNavbar {
-    padding: 14px 18px;
+  .MentorDashboardStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+
 @media (max-width: 560px) {
-  .MentorDashboardWelcomeSection {
-    order: -1;
-    width: 100%;
+  .MentorDashboardStats {
+    grid-template-columns: 1fr;
   }
 }

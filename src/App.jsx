@@ -1,5 +1,5 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import LandingPage from "./Components-LandingPage/LandingPage";
 import Login from "./Components-Auth/Login";
 import Register from "./Components-Auth/Register";
@@ -9,7 +9,8 @@ import VerifyCode from "./Components-Auth/VerifyCode";
 import ResetPassword from "./Components-Auth/ResetPassword";
 import ResetSuccess from "./Components-Auth/ResetSuccess";
 import TwoStepVerification from "./Components-Auth/TwoStepVerification";
-import { MentorDashboard } from "./Components-MentorDashboard/MentorDashboard";
+import { MentorDashboardHome } from "./Components-MentorDashboard/MentorDashboardHome";
+
 import "./App.css";
 
 
@@ -32,7 +33,8 @@ export default function App() {
         
         <Route path="/two-step-verification" element={<TwoStepVerification />} />
 
-        <Route path="/mentor-dashboard" element={<MentorDashboard />} />
+        <Route path="/mentor-dashboard" element={<MentorDashboardHome />} />
+
 
 
       </Routes>

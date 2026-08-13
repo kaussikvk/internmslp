@@ -1,0 +1,506 @@
+.MentorProfilePage {
+  width: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr 0.9fr;
+
+  grid-template-rows: auto auto auto;
+
+  grid-template-areas:
+    "profile role expertise"
+    "profile availability expertise"
+    "history about about"
+    "reviews reviews reviews";
+
+  gap: 30px;
+  align-items: start;
+}
+
+.MentorProfileCard {
+  grid-area: profile;
+  width: 100%;
+  min-height: 360px;
+  background: #ffffff;
+  border: 1px solid #c7c4d84d;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  border-radius: 12px;
+  text-align: center;
+  padding: 22px;
+}
+
+.MentorProfileImageContainer {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #e7eeff;
+  margin: 0 auto 14px;
+}
+
+.MentorProfileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.MentorProfileCard h2 {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Manrope", sans-serif;
+}
+
+.MentorProfileRole {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Hanken Grotesk", sans-serif;
+  color: #3525cd;
+  margin: 6px 0 18px;
+}
+
+.MentorProfileStats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.MentorProfileStat {
+  flex: 1;
+  background: #e7eeff;
+  border-radius: 8px;
+  padding: 12px 6px;
+}
+
+.MentorProfileStat h4 {
+  font-size: 14px;
+  color: #464555;
+  font-weight: 500;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+.MentorProfileStat span {
+  font-size: 25px;
+  font-weight: 600;
+  color: #3525cd;
+  font-family: "Manrope", sans-serif;
+}
+
+.MentorProfileStat p {
+  font-size: 12px;
+  color: #464555;
+  font-weight: 400;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileButton {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  background: #3525cd;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Hanken Grotesk", sans-serif;
+  cursor: pointer;
+}
+
+.MentorProfileRoleCard {
+  grid-area: role;
+  width: 100%;
+  min-height: 180px;
+  background: #ffffff;
+  border: 1px solid #c7c4d84d;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.MentorProfileRoleCard h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #464555;
+  font-family: "Hanken Grotesk", sans-serif;
+  margin: 0 0 16px;
+  letter-spacing: 0.7px;
+}
+
+.MentorProfileRoleContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.MentorProfileRoleIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaddff;
+  flex-shrink: 0;
+}
+
+.ProfileRoleIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.MentorProfileRoleDetails {
+  display: flex;
+  flex-direction: column;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileRoleDetails h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.MentorProfileRoleDetails p {
+  font-size: 15px;
+  color: #464555;
+  margin: 4px 0 2px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.MentorProfileRoleDetails span {
+  font-size: 15px;
+  line-height: 20px;
+  color: #777587;
+  font-weight: 400;
+}
+
+.MentorProfileAvailabilityCard {
+  grid-area: availability;
+  width: 100%;
+  min-height: 180px;
+  background: #ffffff;
+  border: 1px solid #c7c4d84d;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.MentorProfileAvailabilityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.MentorProfileAvailabilityHeader h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #464555;
+  font-family: "Hanken Grotesk", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.MentorProfileAvailabilityHeader span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #3525cd;
+  background: #e7eeff;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileAvailabilityList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.MentorProfileAvailabilityItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.MentorProfileAvailabilityItem p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #464555;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileAvailabilityItem h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111c2d;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileAvailabilityItem.booked p,
+.MentorProfileAvailabilityItem.booked span {
+  color: #64646f;
+}
+
+.MentorProfileAvailabilityItem.booked span {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileExpertiseCard {
+  grid-area: expertise;
+  width: 100%;
+  min-height: 300px;
+  background: #ffffff;
+  border: 1px solid #c7c4d84d;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.MentorProfileExpertiseCard h3 {
+  margin: 0 0 20px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #464555;
+  font-family: "Hanken Grotesk", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.MentorProfileExpertiseList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.MentorProfileExpertiseList span {
+  background: #e7eeff;
+  border: 1px solid #3525cd1a;
+  color: #3525cd;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Hanken Grotesk", sans-serif;
+  padding: 9px 16px;
+  border-radius: 20px;
+}
+
+/* Mentorship History */
+.MentorProfileHistoryCard {
+  grid-area: history;
+  width: 100%;
+  min-height: 260px;
+  background: linear-gradient(135deg, #4338ca, #3525cd);
+  border-radius: 12px;
+  padding: 28px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.MentorProfileHistoryCard h3 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Hanken Grotesk", sans-serif;
+  margin-bottom: 18px;
+}
+
+.MentorProfileHistoryCard h1 {
+  font-size: 42px;
+  font-weight: 800;
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 4px;
+}
+
+.MentorProfileHistoryCard > p {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Hanken Grotesk", sans-serif;
+  margin-bottom: 24px;
+}
+
+.MentorProfileHistoryBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.MentorProfileHistoryBarFill {
+  width: 85%;
+  height: 100%;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.MentorProfileHistoryFootnote {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Hanken Grotesk", sans-serif;
+  line-height: 1.4;
+}
+
+/* About Me */
+.MentorProfileAboutCard {
+  grid-area: about;
+  width: 100%;
+  min-height: 260px;
+  background: #ffffff;
+  border: 1px solid #c7c4d84d;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.MentorProfileAboutHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.MentorProfileAboutHeader h2 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+}
+
+.MentorProfileEditButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #3525cd;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Hanken Grotesk", sans-serif;
+  cursor: pointer;
+}
+
+.MentorProfileAboutCard p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #464555;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+/* Recent Reviews */
+.MentorProfileReviewsCard {
+  grid-area: reviews;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #c7c4d84d;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.MentorProfileReviewsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.MentorProfileReviewsHeader h2 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+}
+
+.MentorProfileReviewsHeader a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3525cd;
+  text-decoration: none;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileReviewsHeader a:hover {
+  text-decoration: underline;
+}
+
+.MentorProfileReviewItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e8ebf1;
+}
+
+.MentorProfileReviewItem:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.MentorProfileReviewAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e7eeff;
+  color: #3525cd;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Hanken Grotesk", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.MentorProfileReviewContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.MentorProfileReviewHeader h4 {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Hanken Grotesk", sans-serif;
+  margin-bottom: 2px;
+}
+
+.MentorProfileReviewHeader p {
+  font-size: 14px;
+  color: #777587;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.MentorProfileReviewText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #464555;
+  font-family: "Hanken Grotesk", sans-serif;
+  margin-top: 8px;
+}
+
+.MentorProfileStarRating {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1100px) {
+  .MentorProfilePage {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "profile"
+      "role"
+      "availability"
+      "expertise"
+      "history"
+      "about"
+      "reviews";
+  }
+}
+
+@media (max-width: 560px) {
+  .MentorProfileReviewItem {
+    flex-wrap: wrap;
+  }
+}
